@@ -2,6 +2,7 @@ html, body {
 	margin:0;
 	padding:0;
 }
+html { background:#e7e4d1 url(../images/html.jpg) fixed }
 body {
 	font-size:100%;
 	font-family:Georgia, "URW Bookman L", serif;
