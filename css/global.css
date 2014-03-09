@@ -26,6 +26,15 @@ position: fixed;
 top: 0;
 left: 0;
 }
+div.wrapper{
+	width: 600px;
+margin: 0 auto;
+}
+div.logo{
+	background: #251c05 url(../images/scratches.gif) center center no-repeat;
+margin: 0 60px;
+padding: 30px 40px;
+}
 strong {
 	font-weight:bold;
 	color:#444;
