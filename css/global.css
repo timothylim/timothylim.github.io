@@ -79,9 +79,6 @@ h2, h3 {
 	font-family:Verdana, Geneva, "DejaVu Sans", sans-serif;
 	font-weight: bold;
 	letter-spacing: 0.03em;
-	color:#006600;
-	color:#007D00;
-	color: rgb(0,125,9);
 	color: rgba(0,125,9, 0.8);
 	text-shadow: 1px 4px 6px #F0F0F0, 0 0 0 #000, 1px 4px 6px #F0F0F0;
 }
@@ -89,9 +86,6 @@ h2 {
 	margin:0 auto;
 	padding:40px 0;
 	width:740px;
-	color:#006600;
-	color:#007D00;
-	color: rgb(0,125,9);
 	color: rgba(0,125,9, 0.8);
 	font-size:180%;
 	font-style:normal;
@@ -109,9 +103,6 @@ h3 {
 	font-size:130%;
 	font-style:normal;
 	text-align:left;
-	color:#006600;
-	color:#007D00;
-	color: rgb(0,125,9);
 	color: rgba(0,125,9, 0.8);
 	text-shadow: 1px 4px 6px #F0F0F0, 0 0 0 #000, 1px 4px 6px #F0F0F0;
 }
