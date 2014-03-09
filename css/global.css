@@ -17,6 +17,14 @@ body {
 	background-position:top;
 	background:url(../images/body.jpg) center 140px no-repeat fixed;
 }
+div.fade{
+	background: url(../images/fade.png);
+height: 155px;
+width: 100%;
+position: fixed;
+top: 0;
+left: 0;
+}
 strong {
 	font-weight:bold;
 	color:#444;
