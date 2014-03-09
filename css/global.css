@@ -30,6 +30,8 @@ z-index:2;
 div.header{
 	z-index: 3;
 	position: fixed;
+	left: 50%;
+margin-left: -300px;
 }
 div.wrapper{
 	width: 600px;
@@ -141,7 +143,7 @@ h3 {
 	width:740px;
 	margin:0 auto;
 	overflow:hidden;
-	padding-top:20px;
+	padding-top:100px;
 }
 /*.content p {
 	text-align:justify;
