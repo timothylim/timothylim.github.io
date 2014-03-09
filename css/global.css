@@ -34,7 +34,9 @@ div.logo{
 	background: #251c05 url(../images/scratches.gif) center center no-repeat;
 margin: 0 60px;
 padding: 30px 40px;
+border-radius: 5px;
 }
+
 strong {
 	font-weight:bold;
 	color:#444;
@@ -79,6 +81,7 @@ a {
 }
 a:link, a:visited {
 	text-decoration:none;
+	color:white;
 }
 a:active, a:hover, a:focus {
 	text-decoration:underline;
