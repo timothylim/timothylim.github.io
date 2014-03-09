@@ -25,7 +25,11 @@ width: 100%;
 position: fixed;
 top: 0;
 left: 0;
-z-index:-1;
+z-index:2;
+}
+div.header{
+	z-index: 3;
+	position: fixed;
 }
 div.wrapper{
 	width: 600px;
