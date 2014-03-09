@@ -1,0 +1,150 @@
+html, body {
+	margin:0;
+	padding:0;
+}
+body {
+	font-size:100%;
+	font-family:Georgia, "URW Bookman L", serif;
+	font-weight:normal;
+	font-style:normal;
+	font-variant:normal;
+	line-height:1.5;
+	vertical-align:baseline;
+	color:#333;
+	background:#F0F0F0;
+	background-color:rgb(240, 240, 240);
+	background-image:url(../images/layout/wrapHeaderBg.jpg);
+	background-repeat:repeat-x;
+	background-position:top;
+}
+strong {
+	font-weight:bold;
+	color:#444;
+}
+em {
+	font-style:italic;
+	font-variant:normal;
+}
+textarea {
+	overflow:auto;
+}
+header, nav, section, article, footer, aside, address, figure, code {
+	display:block;
+}
+a img {
+	outline:0;
+	border:none;
+	border: 0px;
+	vertical-align:middle;
+}
+ul, ol, dl {
+	padding:0;
+	margin:0;
+	text-align:left;
+	list-style:none;
+}
+li {
+	display:inline;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-top:0;
+	line-height:1.6;
+}
+p {
+	padding-bottom:30px;
+}
+p em {
+	font-style:italic;
+}
+a {
+	cursor:pointer;
+}
+a:link, a:visited {
+	text-decoration:none;
+}
+a:active, a:hover, a:focus {
+	text-decoration:underline;
+}
+
+header h1 {
+	font-family:arial;
+	text-align:left;
+	font-size:260%;
+	font-style:italic;
+	padding-left:80px;
+	
+}
+
+h2, h3 {
+	font-family:Verdana, Geneva, "DejaVu Sans", sans-serif;
+	font-weight: bold;
+	letter-spacing: 0.03em;
+	color:#006600;
+	color:#007D00;
+	color: rgb(0,125,9);
+	color: rgba(0,125,9, 0.8);
+	text-shadow: 1px 4px 6px #F0F0F0, 0 0 0 #000, 1px 4px 6px #F0F0F0;
+}
+h2 {
+	margin:0 auto;
+	padding:40px 0;
+	width:740px;
+	color:#006600;
+	color:#007D00;
+	color: rgb(0,125,9);
+	color: rgba(0,125,9, 0.8);
+	font-size:180%;
+	font-style:normal;
+	text-align:left;
+}
+/* this next two selectors must be seperated as such, other heading tags will use greenish bg color for selection as defined below */
+h2::selection {
+	text-shadow: none !important
+}
+h2::-moz-selection {
+ text-shadow: none !important
+}
+h3 {
+	padding:20px 0 0 0;
+	font-size:130%;
+	font-style:normal;
+	text-align:left;
+	color:#006600;
+	color:#007D00;
+	color: rgb(0,125,9);
+	color: rgba(0,125,9, 0.8);
+	text-shadow: 1px 4px 6px #F0F0F0, 0 0 0 #000, 1px 4px 6px #F0F0F0;
+}
+
+/* is section */
+.content {
+	width:740px;
+	margin:0 auto;
+	overflow:hidden;
+	padding-top:20px;
+}
+/*.content p {
+	text-align:justify;
+}*/
+/* content selection bg green leave it in place as both is needed for different browser support */
+.content ::-moz-selection {
+background:#C9E8C8;
+}
+.content ::selection {
+	background:#C9E8C8;
+}
+.content ul {
+	display:block;
+	padding:5px 0 20px 15px;
+	margin:0 15px 15px 15px;
+	font-size:97%;
+}
+.content ul li {
+	display:block;
+	margin:10px 4px 10px 20px;
+	padding-top:5px;
+	padding-bottom:5px;
+	display:list-item;
+	list-style:disc;
+	list-style-position:outside;
+}
