@@ -123,10 +123,10 @@ h2 {
 	text-align:left;
 }
 /* this next two selectors must be seperated as such, other heading tags will use greenish bg color for selection as defined below */
-h2::selection {
+h2::selection, h3::selection {
 	text-shadow: none !important
 }
-h2::-moz-selection {
+h2::-moz-selection, h3::-moz-selection {
  text-shadow: none !important
 }
 h3 {
@@ -150,10 +150,12 @@ h3 {
 }*/
 /* content selection bg green leave it in place as both is needed for different browser support */
 .content ::-moz-selection {
-background:#C9E8C8;
+	background: black;
+	color: white;
 }
 .content ::selection {
-	background:#C9E8C8;
+	background: black;
+	color: white;
 }
 .content ul {
 	display:block;
