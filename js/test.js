@@ -10,7 +10,7 @@ $(document).ready(function(){
 		var i = input.length;
 		while(i){
 			var setLabel = function(){
-				$('#speedoutput').html(input.splice);
+				$('#speedoutput').html(input.splice(0,1));
 			}
 			window.setTimeout(function(){
 				setLabel();
