@@ -11,8 +11,8 @@ $(document).ready(function(){
 		while(i){
 			window.setTimeout(function(){
 				$('#speedoutput').html(input[i]);
-				i--;
 			}, 1000)
+			i--;
 		}
 
 	});
