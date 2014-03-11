@@ -10,10 +10,8 @@ $(document).ready(function(){
 		var i = input.length;
 		while(i){
 			window.setTimeout(function(){
-				$('#speedoutput').html(input[i]);
+				$('#speedoutput').html(input[i--]);
 			}, 1000)
-			i--;
 		}
-
 	});
 });
