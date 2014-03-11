@@ -5,6 +5,7 @@ console.log('               		 ***                  ***\n                    ***
 $(document).ready(function(){
 	var interval;
 	var storedInput;
+	var timeout;
 	$('#startbutton').click(function(){
 		//check for stopped, start becomes restart
 		if(!$('#startbutton').hasClass('clicked')){
@@ -21,7 +22,7 @@ $(document).ready(function(){
 				var val = input.splice(0,1);
 				$('#outputLabel').html(val);
 			}, wpm)
-			setTimeout(function(){
+			timeout = setTimeout(function(){
 				clearInterval(interval);
 				$('#startbutton').val('start')
 				$('#startbutton').removeClass('clicked');
@@ -30,6 +31,7 @@ $(document).ready(function(){
 	});
 	$('#stopbutton').click(function(){
 		clearInterval(interval);
+		clearTimeout(timeout);
 		$('#startbutton').addClass('stopped');
 		$('#startbutton').val('restart');
 		$('#startbutton').removeClass('clicked');
