@@ -177,3 +177,8 @@ h3 {
 	width: 100%;
 	text-align: center;
 }
+#speedOutput{
+	width:100%;
+	text-align: center;
+	padding-bottom: 50px;
+}

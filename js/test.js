@@ -10,7 +10,7 @@ $(document).ready(function(){
 		var i = input.length;
 		var interval = setInterval(function(){
 			var val = input.splice(0,1);
-			$('#speedoutput').html(val);
+			$('#outputLabel').html(val);
 		}, 1000)
 		setTimeout(function(){
 			clearInterval(interval);
