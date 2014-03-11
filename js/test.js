@@ -6,7 +6,8 @@ $(document).ready(function(){
 	var interval;
 	var storedInput;
 	$('#startbutton').click(function(){
-		if(!$('#startbutton').hasClass('stopped') && !$('#inputText').val('') == '')
+		//check for stopped, start becomes restart
+		if(!$('#startbutton').hasClass('stopped') && !$('#inputText').val() == '')
 			storedInput = $('#inputText').val();
 		input = storedInput.split(' ');
 		$('#inputText').val('');
