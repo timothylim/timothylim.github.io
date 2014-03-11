@@ -9,9 +9,13 @@ $(document).ready(function(){
 		$('#speedinput').val('');
 		var i = input.length;
 		while(i){
+			var setLabel = function(){
+				$('#speedoutput').html(input.splice);
+			}
 			window.setTimeout(function(){
-				$('#speedoutput').html(input[i--]);
+				setLabel();
 			}, 1000)
+			i--;
 		}
 	});
 });
