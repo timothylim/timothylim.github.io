@@ -8,15 +8,17 @@ $(document).ready(function(){
 		input = input.split(' ');
 		$('#speedinput').val('');
 		var i = input.length;
+		var interval;
 		while(i){
 			var val = input.splice(0,1);
 			var setLabel = function(){
 				$('#speedoutput').html(val);
 			}
-			window.setTimeout(function(){
+			window.setInterval(function(){
 				setLabel();
 			}, 1000)
 			i--;
 		}
+		window.clearInterval(interval);
 	});
 });
