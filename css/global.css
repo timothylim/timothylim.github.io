@@ -172,3 +172,8 @@ h3 {
 	list-style:disc;
 	list-style-position:outside;
 }
+
+#speedread{
+	width: 100%;
+	text-align: center;
+}
