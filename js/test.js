@@ -9,7 +9,7 @@ $(document).ready(function(){
 		$('#speedinput').val('');
 		var i = input.length;
 		while(i){
-			window.setInterval(function(){
+			window.setTimeout(function(){
 				$('#speedoutput').html(input[i]);
 				i--;
 			}, 1000)
