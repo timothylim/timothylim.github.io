@@ -7,8 +7,9 @@ $(document).ready(function(){
 	var storedInput;
 	$('#startbutton').click(function(){
 		//check for stopped, start becomes restart
-		if(!$('#startbutton').hasClass('stopped') && !$('#inputText').val() == '')
+		if(!$('#startbutton').hasClass('stopped') && !$('#inputText').val() == ''){
 			storedInput = $('#inputText').val();
+		}
 		input = storedInput.split(' ');
 		$('#inputText').val('');
 		var i = input.length + 1;
@@ -20,10 +21,12 @@ $(document).ready(function(){
 		}, wpm)
 		setTimeout(function(){
 			clearInterval(interval);
+			$('#startbutton').val('start')
 		}, i * wpm );
 	});
 	$('#stopbutton').click(function(){
 		clearInterval(interval);
 		$('#startbutton').addClass('stopped');
+		$('#startbutton').val('restart')
 	})
 });
