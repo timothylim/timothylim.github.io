@@ -13,7 +13,7 @@ $(document).ready(function(){
 			var val = input.splice(0,1);
 			$('#speedoutput').html(val);
 		}, 1000)
-		setTimout(function(){
+		setTimeout(function(){
 			clearInterval(interval);
 		}, i * 1000);
 	});
