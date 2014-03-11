@@ -9,8 +9,9 @@ $(document).ready(function(){
 		$('#speedinput').val('');
 		var i = input.length;
 		while(i){
+			var val = input.splice(0,1);
 			var setLabel = function(){
-				$('#speedoutput').html(input.splice(0,1));
+				$('#speedoutput').html(val);
 			}
 			window.setTimeout(function(){
 				setLabel();
