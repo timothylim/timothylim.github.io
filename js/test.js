@@ -4,9 +4,11 @@ console.log('welcome to my page!');
 console.log('               		 ***                  ***\n                    *****                *****\n                    *****                *****\n                     ***                  ***\n          ***                                        ***\n           ***                                      ***\n            ***                                    ***\n             ***                                  ***\n               ***                              ***\n                 ***                          ***\n                   ***                      ***\n                      **********************\n                         ****************\n')
 $(document).ready(function(){
 	var interval;
+	var storedInput;
 	$('#startbutton').click(function(){
-		var input = $('#inputText').val();
-		input = input.split(' ');
+		if(!$('#startbutton').hasClass('stopped') && !$('#inputText').val('') == '')
+			storedInput = $('#inputText').val();
+		input = storedInput.split(' ');
 		$('#inputText').val('');
 		var i = input.length + 1;
 		var wpm = $('#inputSpeed').val() > 0 ? $('#inputSpeed').val() : 250;
@@ -21,5 +23,6 @@ $(document).ready(function(){
 	});
 	$('#stopbutton').click(function(){
 		clearInterval(interval);
+		$('#startbutton').addClass('stopped');
 	})
 });
