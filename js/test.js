@@ -9,16 +9,12 @@ $(document).ready(function(){
 		$('#speedinput').val('');
 		var i = input.length;
 		var interval;
-		while(i){
+		setInterval(function(){
 			var val = input.splice(0,1);
-			var setLabel = function(){
-				$('#speedoutput').html(val);
-			}
-			window.setInterval(function(){
-				setLabel();
-			}, 1000)
-			i--;
-		}
-		window.clearInterval(interval);
+			$('#speedoutput').html(val);
+		}, 1000)
+		setTimout(function(){
+			clearInterval(interval);
+		}, i * 1000);
 	});
 });
