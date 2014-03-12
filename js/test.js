@@ -72,7 +72,7 @@ return (s)
 				}
 				else{
 					$('#typingLabel').text($('#typingLabel:not(.highlighted)').text().replace(testWord, ' '));
-					$('#typingOutput span').last().append( $("<span class='highlighted greenHighlight'>"+testWord+" </span>"))
+					$('#typingOutput span').last().append( $("<span class='highlighted redHighlight'>"+testWord+" </span>"))
 				}
 			}
 		}
