@@ -47,6 +47,7 @@ return (s)
 
 	//typing test
 	var textArray = $('#typingLabel').text().split(' ');
+	var storedTextArray = $('#typingLabel').text()
 	var correctText;
 	$('#typingText').keydown(function(e){
 		if(e.which == 32 || e.which ==13){
@@ -77,6 +78,8 @@ return (s)
 			}
 		}
 	});
-	var textInput = $('typingText').val();
-
+	$('#restartTest')click(function(){
+		$('.highlighted').remove();
+		$('#typingText').val(storedTextArray);
+	}
 });
