@@ -58,11 +58,11 @@ return (s)
 			//replace label with highlighted (green = 1, red =0)
 			if(correctText){
 				$('#typingLabel').text($('#typingLabel:not(.highlighted)').text().replace(testWord, ' '));
-				$('#typingLabel').prepend( $("<span class='highlighted greenHighlight'>"+testWord+"</span>"))
+				$('#typingOutput').prepend( $("<span class='highlighted greenHighlight'>"+testWord+" </span>"))
 			}
 			else{
 				$('#typingLabel').text($('#typingLabel:not(.highlighted)').text().replace(testWord, ' '));
-				$('#typingLabel').prepend( $("<span class='highlighted redHighlight'>"+testWord+"</span>"))
+				$('#typingOutput').prepend( $("<span class='highlighted redHighlight'>"+testWord+" </span>"))
 			}
 		}
 	});
