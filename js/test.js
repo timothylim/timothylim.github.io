@@ -80,6 +80,8 @@ $(function(){
 				//at the end of input, stop timer
 				clearInterval(timer);
 				timer = null;
+				$("#typingText").prop('disabled', true);
+				$('#wpm').text($('.greenHighlight').length/($('#timer').text()/60));
 			}
 		}
 	});
@@ -91,6 +93,7 @@ $(function(){
 		textArray = storedTextArray.split(' ');
 		clearInterval(timer);
 		timer = null;
+		$("#typingText").prop('disabled', false);
 	});
 
 	var timerStart = function(){

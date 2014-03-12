@@ -190,3 +190,9 @@ h3 {
 .redHighlight{
 	background-color: red;
 }
+
+#timer{
+	padding-left: 24px;
+	width: 30px;
+	display: inline-block;
+}
