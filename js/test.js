@@ -127,6 +127,5 @@ $(function(){
 	    return array;
 	}
 
-}
 
 });
