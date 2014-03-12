@@ -81,5 +81,5 @@ return (s)
 	$('#restartTest')click(function(){
 		$('.highlighted').remove();
 		$('#typingText').val(storedTextArray);
-	}
+	});
 });
