@@ -58,6 +58,7 @@ return (s)
 			//replace label with highlighted (green = 1, red =0)
 			if(!$('.highlighted').length){
 				if(correctText){
+					//remove this word from the label, then add highlighted span
 					$('#typingLabel').text($('#typingLabel:not(.highlighted)').text().replace(testWord, ' '));
 					$('#typingOutput').prepend( $("<span class='highlighted greenHighlight'>"+testWord+" </span>"))
 				}
@@ -79,7 +80,9 @@ return (s)
 		}
 	});
 	$('#restartTest').click(function(){
+		// remove highlighted spans, clear label and replace with stored value
 		$('.highlighted').remove();
-		$('#typingText').val(storedTextArray);
+		$('#typingLabel').val('');
+		$('#typingLabel').val(storedTextArray);
 	});
 });
