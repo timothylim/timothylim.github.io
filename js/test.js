@@ -57,7 +57,7 @@ return (s)
 			$('#typingText').val('');
 			//replace label with highlighted (green = 1, red =0)
 			if(correctText){
-				$('#typingLabel').text($('#typingLabel:not(.highlighted)').text().replace(testWord, $("<span class='highlighted greenHighlight'>"+testWord+"</span>").outerHTML());
+				$('#typingLabel').text($('#typingLabel:not(.highlighted)').text().replace(testWord, $("<span class='highlighted greenHighlight'>"+testWord+"</span>").outerHTML()));
 			}
 			else{
 				$('#typingLabel').text($('#typingLabel:not(.highlighted)').text().replace(testWord, "<span class='highlighted redHighlight'>"+testWord+"</span>"));
