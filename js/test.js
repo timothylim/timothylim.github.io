@@ -44,7 +44,11 @@ $(function(){
 	var textArray = $('#typingLabel').text().split(' ');
 	var storedTextArray = $('#typingLabel').text()
 	var correctText;
+	var timer = null;
 	$('#typingText').keydown(function(e){
+		if(!timer){
+			timerStart();
+		}
 		if(e.which == 32 || e.which ==13){
 			textInput = $('#typingText').val().replace(' ', '');
 			var testWord = textArray.splice(0,1);
@@ -80,5 +84,23 @@ $(function(){
 		$('#typingLabel').text('');
 		$('#typingLabel').text(storedTextArray);
 		textArray = storedTextArray.split(' ');
+		clearInterval(timer);
+		timer = null;
 	});
+
+	var timerStart = function(){
+		var start = new Date().getTime(),
+	    elapsed = '0.0';
+
+		timer = setInterval(function(){
+		    var time = new Date().getTime() - start;
+
+		    elapsed = Math.floor(time / 100) / 10;
+		    if(Math.round(elapsed) == elapsed) { elapsed += '.0'; }
+
+		    $('#timer').text(elapsed);
+
+		}, 100);
+	};
+
 });
