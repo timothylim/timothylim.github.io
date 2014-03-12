@@ -50,12 +50,12 @@ return (s)
 	var correctText;
 	$('#typingText').keydown(function(e){
 		if(e.which == 32 || e.which ==13){
-			textInput = $('#typingText').val();
+			textInput = $('#typingText').val().replace(' ', '');
 			var testWord = textArray.splice(0,1);
 			var correctText = textInput === testWord;
 			$('#typingText').val('');
 			//replace label with highlighted (green = 1, red =0)
-			if(!$('.highlighted.greenHighlight').length){
+			if(!$('.highlighted').length){
 				if(correctText){
 					$('#typingLabel').text($('#typingLabel:not(.highlighted)').text().replace(testWord, ' '));
 					$('#typingOutput').prepend( $("<span class='highlighted greenHighlight'>"+testWord+" </span>"))
