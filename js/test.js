@@ -78,7 +78,7 @@ return (s)
 			}
 		}
 	});
-	$('#restartTest')click(function(){
+	$('#restartTest').click(function(){
 		$('.highlighted').remove();
 		$('#typingText').val(storedTextArray);
 	});
