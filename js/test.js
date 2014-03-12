@@ -56,13 +56,25 @@ return (s)
 			var correctText = pattern.test(textInput);
 			$('#typingText').val('');
 			//replace label with highlighted (green = 1, red =0)
-			if(correctText){
-				$('#typingLabel').text($('#typingLabel:not(.highlighted)').text().replace(testWord, ' '));
-				$('#typingOutput').prepend( $("<span class='highlighted greenHighlight'>"+testWord+" </span>"))
+			if(!$('.highlighted.greenHighlight').length){
+				if(correctText){
+					$('#typingLabel').text($('#typingLabel:not(.highlighted)').text().replace(testWord, ' '));
+					$('#typingOutput').prepend( $("<span class='highlighted greenHighlight'>"+testWord+" </span>"))
+				}
+				else{
+					$('#typingLabel').text($('#typingLabel:not(.highlighted)').text().replace(testWord, ' '));
+					$('#typingOutput').prepend( $("<span class='highlighted redHighlight'>"+testWord+" </span>"))
+				}
 			}
 			else{
-				$('#typingLabel').text($('#typingLabel:not(.highlighted)').text().replace(testWord, ' '));
-				$('#typingOutput').prepend( $("<span class='highlighted redHighlight'>"+testWord+" </span>"))
+				if(correctText){
+					$('#typingLabel').text($('#typingLabel:not(.highlighted)').text().replace(testWord, ' '));
+					$('#typingOutput span').last().append( $("<span class='highlighted greenHighlight'>"+testWord+" </span>"))
+				}
+				else{
+					$('#typingLabel').text($('#typingLabel:not(.highlighted)').text().replace(testWord, ' '));
+					$('#typingOutput span').last().append( $("<span class='highlighted greenHighlight'>"+testWord+" </span>"))
+				}
 			}
 		}
 	});
