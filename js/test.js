@@ -37,7 +37,7 @@ $(function(){
 		$('#startbutton').addClass('stopped');
 		$('#startbutton').val('restart');
 		$('#startbutton').removeClass('clicked');
-	})
+	});
 
 	//typing test
 	var textArray = $('#typingLabel').text().split(' ');
@@ -45,9 +45,9 @@ $(function(){
 	$('#typingText').keydown(function(e){
 		if(e.which == 32 || e.which ==13){
 			textInput = $('#typingText').val();
-			var testWord = textArray.splice(0,1)
-			var pattern = new RegExp(testWord)
-			var correctText = textInput.test(pattern);
+			var testWord = textArray.splice(0,1);
+			var pattern = new RegExp(testWord);
+			var correctText = pattern.test(textInput);
 			$('#typingText').val('');
 			//replace label with highlighted (green = 1, red =0)
 			if(correctText){
