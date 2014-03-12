@@ -39,6 +39,12 @@ $(function(){
 		$('#startbutton').removeClass('clicked');
 	});
 
+jQuery.fn.outerHTML = function(s) {
+return (s)
+? this.before(s).remove()
+: jQuery("<p/>").append(this.eq(0).clone()).html();
+}
+
 	//typing test
 	var textArray = $('#typingLabel').text().split(' ');
 	var correctText;
@@ -51,7 +57,7 @@ $(function(){
 			$('#typingText').val('');
 			//replace label with highlighted (green = 1, red =0)
 			if(correctText){
-				$('#typingLabel').text($('#typingLabel:not(.highlighted)').text().replace(testWord, "<span class='highlighted greenHighlight'>"+testWord+"</span>"));
+				$('#typingLabel').text($('#typingLabel:not(.highlighted)').text().replace(testWord, $("<span class='highlighted greenHighlight'>"+testWord+"</span>").outerHTML());
 			}
 			else{
 				$('#typingLabel').text($('#typingLabel:not(.highlighted)').text().replace(testWord, "<span class='highlighted redHighlight'>"+testWord+"</span>"));
