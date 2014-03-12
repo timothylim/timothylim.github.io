@@ -81,7 +81,8 @@ $(function(){
 				clearInterval(timer);
 				timer = null;
 				$("#typingText").prop('disabled', true);
-				$('#wpm').text($('.greenHighlight').length/($('#timer').text()/60));
+				var wpm = $('.greenHighlight').length/($('#timer').text()/60);
+				$('#wpm').text(Math.ceil(wpm));
 			}
 		}
 	});
