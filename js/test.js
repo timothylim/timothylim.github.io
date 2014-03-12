@@ -88,6 +88,13 @@ $(function(){
 				var wpm = averageWords/($('#timer').text()/60);
 				$('#wpm').text(Math.ceil(wpm));
 			}
+			if($('.highlighted').last().position().top > $('.highlighted').position().top){
+				$('.toprowText').hide();
+			}
+			else{
+				$('.highlighted').last().addClass('toprowText');
+			}
+
 		}
 	});
 	$('#restartTest').click(function(){
