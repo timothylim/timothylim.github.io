@@ -173,11 +173,11 @@ h3 {
 	list-style-position:outside;
 }
 
-#speedread{
+#speedread, #speedOutput, #typingOutput{
 	width: 100%;
 	text-align: center;
 }
-#speedOutput{
+#typingInput{
 	width:100%;
 	text-align: center;
 	padding-bottom: 50px;
