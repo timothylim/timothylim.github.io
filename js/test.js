@@ -52,7 +52,7 @@ return (s)
 		if(e.which == 32 || e.which ==13){
 			textInput = $('#typingText').val().replace(' ', '');
 			var testWord = textArray.splice(0,1);
-			var correctText = textInput === testWord;
+			var correctText = textInput == testWord;
 			$('#typingText').val('');
 			//replace label with highlighted (green = 1, red =0)
 			if(!$('.highlighted').length){
