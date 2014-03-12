@@ -2,7 +2,9 @@ console.log('welcome to my page!');
 
 
 console.log('               		 ***                  ***\n                    *****                *****\n                    *****                *****\n                     ***                  ***\n          ***                                        ***\n           ***                                      ***\n            ***                                    ***\n             ***                                  ***\n               ***                              ***\n                 ***                          ***\n                   ***                      ***\n                      **********************\n                         ****************\n')
-$(document).ready(function(){
+$(function(){
+	
+	//speed reading
 	var interval;
 	var storedInput;
 	var timeout;
@@ -36,4 +38,26 @@ $(document).ready(function(){
 		$('#startbutton').val('restart');
 		$('#startbutton').removeClass('clicked');
 	})
+
+	//typing test
+	var textArray = $('#typingLabel').text().split(' ');
+	var correctText;
+	$('#typingText').keydown(function(e){
+		if(e.which == 32 || e.which ==13){
+			textInput = $('typingText').val();
+			var testWord = textArray.splice(0,1)
+			var pattern = new RegExp(testWord)
+			var correctText = textInput.test(pattern);
+			$('typingText').val('');
+			//replace label with highlighted (green = 1, red =0)
+			if(correctText){
+				$('#typingLabel').text($('#typingLabel:not(.highlighted)').text().replace(testWord, "<span class='highlighted greenHighlight'>"+testWord+"</span>"));
+			}
+			else{
+				$('#typingLabel').text($('#typingLabel:not(.highlighted)').text().replace(testWord, "<span class='highlighted redHighlight'>"+testWord+"</span>"));
+			}
+		}
+	});
+	var textInput = $('typingText').val();
+
 });

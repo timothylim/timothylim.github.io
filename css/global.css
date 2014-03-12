@@ -173,12 +173,20 @@ h3 {
 	list-style-position:outside;
 }
 
-#speedread, #speedOutput, #typingOutput{
+#speedread, #typingOutput{
 	width: 100%;
 	text-align: center;
 }
-#typingInput{
+#typingInput, #speedOutput{
 	width:100%;
 	text-align: center;
 	padding-bottom: 50px;
+}
+
+.greenHighlight{
+	background-color: green;
+}
+
+.redHighlight{
+	background-color: red;
 }
