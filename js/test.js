@@ -52,8 +52,7 @@ return (s)
 		if(e.which == 32 || e.which ==13){
 			textInput = $('#typingText').val();
 			var testWord = textArray.splice(0,1);
-			var pattern = new RegExp(testWord);
-			var correctText = pattern.test(textInput);
+			var correctText = textInput === testWord;
 			$('#typingText').val('');
 			//replace label with highlighted (green = 1, red =0)
 			if(!$('.highlighted.greenHighlight').length){
