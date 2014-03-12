@@ -177,7 +177,7 @@ h3 {
 	width: 100%;
 	text-align: center;
 }
-#typingInput, #speedOutput{
+#typingInput{
 	width:100%;
 	text-align: center;
 	padding-bottom: 50px;
@@ -195,4 +195,9 @@ h3 {
 	padding-left: 24px;
 	width: 30px;
 	display: inline-block;
+}
+
+#speedText, #readText, #typingOutput{
+	width:740px;
+	margin: 0 auto;
 }
