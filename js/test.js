@@ -39,9 +39,10 @@ $(function(){
 		$('#startbutton').removeClass('clicked');
 	});
 
-
 	//typing test
-	var textArray = $('#typingLabel').text().split(' ');
+	var wordStringArray = "house|river|water|said|hear|for|study|example|him|write|got|sentence|play|learn|too|one|way|work|too|light|animal|eat|at|they|father|up|hard|add|move|state|kind|boy|most|sea|its|made|after|year|hand|your|this|so|just|its|without|your|at|call|so|of|did|by|story|until|close|been|letter|off|not|house|life|let|show|land|name|show|than|are|he|away|learn|start|men|thought|carry|group|world|side|children|place|man|carry|but|how|for|important|hard|two|never|ask|people|make|left|also|earth|often|you|may|feet|will|all|their|again|white|just|move|food|watch|mountain|can|has|why|an|set|now|then|feet|could|think|began|small|way|about|her|her|long|as|went|here|tree|seem|keep|his|say|old|us|last|close|water|tree|answer|little|long|say|its|stop|enough|change|add|example|name|over|back|must|close|light|learn|good|picture|left|book|eye|turn|turn|each|had|might|walk|men|song|end|then|me|word|until|found|new|no|spell|him|would|second|book|let|without|form|of|work|young|right|it's|white|off|find|or|sound|your|quick|well|most|must|what|important|should|face|in|now|watch|car|follow|add|next|very|cut|into|if|want|after|you|different|think|talk|never|might|between|while|idea|by|over|keep|often|example|kind|about|man|thing|mountain|mountain|point|head|car|people|face|mean|this|other|live|to|here|should|them|do|together|page|form|school|first|near|sound|them|right|say|left|other|their|these|near|such|begin|down|was|too|night|from|that|come|away|four|where|big|old|over|along|school|know|and|one|more|do|above|put|line|plant|another|carry|sentence|really|mile|sometimes|been|man|made|or|thought|leave|being|still|once|quickly|got|in|all|family|to|know|people|thing|put|that|miss|much|night|one|think|write|him|very|does|into|idea|just|few|mother|word|why|through|small|made|might|second|group|go|seem|par".split('|');
+	var textArray = shuffleArray(wordStringArray);//$('#typingLabel').text().split(' ');
+	$('#typingLabel').text(wordStringArray);
 	var storedTextArray = $('#typingLabel').text()
 	var correctText;
 	var timer = null;
@@ -100,7 +101,7 @@ $(function(){
 		$("#typingText").prop('disabled', false);
 	});
 
-	var timerStart = function(){
+	function timerStart(){
 		var start = new Date().getTime(),
 	    timeElapsed = '0.0';
 
@@ -114,5 +115,19 @@ $(function(){
 
 		}, 100);
 	};
+
+	function shuffleArray(array) {
+		//Fisher-Yates shuffle algorithm
+	    for (var i = array.length - 1; i > 0; i--) {
+	        var j = Math.floor(Math.random() * (i + 1));
+	        var temp = array[i];
+	        array[i] = array[j];
+	        array[j] = temp;
+	    }
+	    return array;
+	}
+
+  return array;
+}
 
 });
