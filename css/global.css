@@ -192,8 +192,9 @@ h3 {
 }
 
 #timer{
-	padding-left: 24px;
-	width: 30px;
+	padding-left: 25px;
+	padding-right:25px;
+	width: 45px;
 	display: inline-block;
 }
 
