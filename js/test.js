@@ -76,6 +76,11 @@ $(function(){
 					$('#typingOutput span').last().append( $("<span class='highlighted redHighlight'>"+testWord+" </span>"))
 				}
 			}
+			if(!textArray.length){
+				//at the end of input, stop timer
+				clearInterval(timer);
+				timer = null;
+			}
 		}
 	});
 	$('#restartTest').click(function(){
