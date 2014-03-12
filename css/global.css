@@ -173,7 +173,7 @@ h3 {
 	list-style-position:outside;
 }
 
-#speedread, #typingOutput{
+#speedread, #speedOutput{
 	width: 100%;
 	text-align: center;
 }
@@ -200,4 +200,11 @@ h3 {
 #speedText, #readText, #typingOutput{
 	width:740px;
 	margin: 0 auto;
+}
+
+#typingOutput{
+	text-align: left;
+	height: 75px;
+	margin-top: 25px;
+	overflow: hidden;
 }
