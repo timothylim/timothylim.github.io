@@ -82,7 +82,7 @@ return (s)
 	$('#restartTest').click(function(){
 		// remove highlighted spans, clear label and replace with stored value
 		$('.highlighted').remove();
-		$('#typingLabel').val('');
-		$('#typingLabel').val(storedTextArray);
+		$('#typingLabel').text('');
+		$('#typingLabel').text(storedTextArray);
 	});
 });
