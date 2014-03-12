@@ -78,7 +78,7 @@ $(function(){
 					$('#typingOutput span').last().after( $("<span class='highlighted redHighlight'>"+testWord+" </span>"))
 				}
 			}
-			if(timeElapsed == 60.0){//!textArray.length){
+			if(timeElapsed > 60.0){//!textArray.length){
 				//at the end of input, stop timer
 				clearInterval(timer);
 				timer = null;
@@ -89,7 +89,7 @@ $(function(){
 				var wpm = averageWords/($('#timer').text()/60);
 				$('#wpm').text(Math.ceil(wpm));
 			}
-			if($('.highlighted').last().position().top > $('.highlighted').position().top){
+			if($('.highlighted:visible').last().position().top > $('.highlighted:visible').position().top){
 				$('.toprowText').hide();
 			}
 			else{
