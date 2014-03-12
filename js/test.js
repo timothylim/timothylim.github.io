@@ -84,5 +84,6 @@ return (s)
 		$('.highlighted').remove();
 		$('#typingLabel').text('');
 		$('#typingLabel').text(storedTextArray);
+		textArray = storedTextArray.split(' ');
 	});
 });
