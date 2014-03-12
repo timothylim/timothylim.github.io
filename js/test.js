@@ -44,7 +44,7 @@ $(function(){
 	var correctText;
 	$('#typingText').keydown(function(e){
 		if(e.which == 32 || e.which ==13){
-			textInput = $('typingText').val();
+			textInput = $('#typingText').val();
 			var testWord = textArray.splice(0,1)
 			var pattern = new RegExp(testWord)
 			var correctText = textInput.test(pattern);
