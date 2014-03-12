@@ -48,7 +48,7 @@ $(function(){
 			var testWord = textArray.splice(0,1)
 			var pattern = new RegExp(testWord)
 			var correctText = textInput.test(pattern);
-			$('typingText').val('');
+			$('#typingText').val('');
 			//replace label with highlighted (green = 1, red =0)
 			if(correctText){
 				$('#typingLabel').text($('#typingLabel:not(.highlighted)').text().replace(testWord, "<span class='highlighted greenHighlight'>"+testWord+"</span>"));
