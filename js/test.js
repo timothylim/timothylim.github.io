@@ -69,11 +69,11 @@ $(function(){
 			else{
 				if(correctText){
 					$('#typingLabel').text($('#typingLabel:not(.highlighted)').text().replace(testWord, ' '));
-					$('#typingOutput span').last().append( $("<span class='highlighted greenHighlight'>"+testWord+" </span>"))
+					$('#typingOutput span').last().after( $("<span class='highlighted greenHighlight'>"+testWord+" </span>"))
 				}
 				else{
 					$('#typingLabel').text($('#typingLabel:not(.highlighted)').text().replace(testWord, ' '));
-					$('#typingOutput span').last().append( $("<span class='highlighted redHighlight'>"+testWord+" </span>"))
+					$('#typingOutput span').last().after( $("<span class='highlighted redHighlight'>"+testWord+" </span>"))
 				}
 			}
 			if(!textArray.length){
@@ -99,15 +99,15 @@ $(function(){
 
 	var timerStart = function(){
 		var start = new Date().getTime(),
-	    elapsed = '0.0';
+	    timeElapsed = '0.0';
 
 		timer = setInterval(function(){
 		    var time = new Date().getTime() - start;
 
-		    elapsed = Math.floor(time / 100) / 10;
-		    if(Math.round(elapsed) == elapsed) { elapsed += '.0'; }
+		    timeElapsed = Math.floor(time / 100) / 10;
+		    if(Math.round(timeElapsed) == timeElapsed) { timeElapsed += '.0'; }
 
-		    $('#timer').text(elapsed);
+		    $('#timer').text(timeElapsed);
 
 		}, 100);
 	};
