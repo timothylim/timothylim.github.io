@@ -123,6 +123,17 @@ $(function(){
 
 		    $('#timer').text(timeElapsed);
 
+		    if(timeElapsed == 60){
+		    	clearInterval(timer);
+				timer = null;
+				$("#typingText").prop('disabled', true);
+				var totalCorrectChars = $('.greenHighlight').text().replace(/ /g, '').length;
+				// In general, there are 5 characters in words
+				var averageWords = totalCorrectChars / 5;
+				var wpm = averageWords/($('#timer').text()/60);
+				$('#wpm').text(Math.ceil(wpm));
+		    }
+
 		}, 100);
 	};
 
