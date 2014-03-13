@@ -91,6 +91,7 @@ $(function(){
 			}
 			if($('.highlighted:visible').last().position().top > $('.highlighted:visible').position().top){
 				$('.toprowText').hide();
+				$('.highlighted').last().addClass('toprowText');
 			}
 			else{
 				$('.highlighted').last().addClass('toprowText');
