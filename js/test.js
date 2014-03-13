@@ -121,7 +121,7 @@ $(function(){
 		    timeElapsed = Math.floor(time / 100) / 10;
 		    if(Math.round(timeElapsed) == timeElapsed) { timeElapsed += '.0'; }
 
-		    $('#timer').text(timeElapsed);
+		    $('#timer').text(60-timeElapsed);
 
 		    if(timeElapsed == 60){
 		    	clearInterval(timer);
