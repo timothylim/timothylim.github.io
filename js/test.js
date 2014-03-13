@@ -131,7 +131,7 @@ $(function(){
 				// In general, there are 5 characters in words
 				var averageWords = totalCorrectChars / 5;
 				var wpm = averageWords/(60/60);
-				$('#wpm').text(Math.ceil(wpm));
+				$('#wpm').text(wpm.toFixed(1));
 		    }
 
 		}, 100);
