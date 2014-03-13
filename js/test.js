@@ -86,7 +86,7 @@ $(function(){
 				var totalCorrectChars = $('.greenHighlight').text().replace(/ /g, '').length;
 				// In general, there are 5 characters in words
 				var averageWords = totalCorrectChars / 5;
-				var wpm = averageWords/($('#timer').text()/60);
+				var wpm = averageWords/(60/60);
 				$('#wpm').text(Math.ceil(wpm));
 			}
 			if($('.highlighted:visible').last().position().top > $('.highlighted:visible').position().top){
@@ -121,7 +121,7 @@ $(function(){
 		    timeElapsed = Math.floor(time / 100) / 10;
 		    if(Math.round(timeElapsed) == timeElapsed) { timeElapsed += '.0'; }
 
-		    $('#timer').text(60-timeElapsed);
+		    $('#timer').text(Math.floor(60-timeElapsed));
 
 		    if(timeElapsed == 60){
 		    	clearInterval(timer);
@@ -130,7 +130,7 @@ $(function(){
 				var totalCorrectChars = $('.greenHighlight').text().replace(/ /g, '').length;
 				// In general, there are 5 characters in words
 				var averageWords = totalCorrectChars / 5;
-				var wpm = averageWords/($('#timer').text()/60);
+				var wpm = averageWords/(60/60);
 				$('#wpm').text(Math.ceil(wpm));
 		    }
 
