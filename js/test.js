@@ -163,16 +163,17 @@ $(function(){
 			var rsq = Math.pow(r, 2);
 			return 2*3.141*rsq + (2*3.141*r *21.656 /(3.141 * rsq))
 		}
+		var data = formulaOutput;
+		var indices = d3.range(0, data.length);
 
-		//var indices = d3.range(0, data.length);
 		// create a simple data array that we'll plot with a line (this array represents only the Y values, X will just be the index location)
-		var data = [3, 6, 2, 7, 5, 2, 0, 3, 8, 9, 2, 5, 9, 3, 6, 3, 6, 2, 7, 5, 2, 1, 3, 8, 9, 2, 5, 9, 2, 7];
-		var data2 = [4, 5, 1, 9, 2, 1, 6, 2, 2, 9, 2, 5, 9, 3, 6, 3, 6, 2, 7, 5, 2, 1, 3, 8, 9, 2, 5, 9, 2, 7];
+		//var data = [3, 6, 2, 7, 5, 2, 0, 3, 8, 9, 2, 5, 9, 3, 6, 3, 6, 2, 7, 5, 2, 1, 3, 8, 9, 2, 5, 9, 2, 7];
+		//var data2 = [4, 5, 1, 9, 2, 1, 6, 2, 2, 9, 2, 5, 9, 3, 6, 3, 6, 2, 7, 5, 2, 1, 3, 8, 9, 2, 5, 9, 2, 7];
 
 		// X scale will fit all values from data[] within pixels 0-w
-		var x = d3.scale.linear().domain([0, data.length]).range([0, w]);
+		var x = d3.scale.linear().domain([0, d3.max(data)]).range([0, w]);
 		// Y scale will fit values from 0-10 within pixels h-0 (Note the inverted domain for the y-scale: bigger is up!)
-		var y = d3.scale.linear().domain([0, 10]).range([h, 0]);
+		var y = d3.scale.linear().domain([indices]).range([h, 0]);
 			// automatically determining max range can work something like this
 			// var y = d3.scale.linear().domain([0, d3.max(data)]).range([h, 0]);
 
@@ -220,7 +221,6 @@ $(function(){
 			// do this AFTER the axes above so that the line is above the tick-lines
   			graph.append("svg:path").attr("d", line(data));
 			
-  			graph.append("svg:path").attr("d", line(data2));
 
 
 
