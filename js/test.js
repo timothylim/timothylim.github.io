@@ -164,7 +164,7 @@ $(function(){
 			return 2*3.141*rsq + (2*3.141*r *21.656 /(3.141 * rsq))
 		}
 
-		var indices = d3.range(0, data.length);
+		//var indices = d3.range(0, data.length);
 		// create a simple data array that we'll plot with a line (this array represents only the Y values, X will just be the index location)
 		var data = [3, 6, 2, 7, 5, 2, 0, 3, 8, 9, 2, 5, 9, 3, 6, 3, 6, 2, 7, 5, 2, 1, 3, 8, 9, 2, 5, 9, 2, 7];
 		var data2 = [4, 5, 1, 9, 2, 1, 6, 2, 2, 9, 2, 5, 9, 3, 6, 3, 6, 2, 7, 5, 2, 1, 3, 8, 9, 2, 5, 9, 2, 7];
