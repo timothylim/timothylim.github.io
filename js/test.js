@@ -171,7 +171,7 @@ $(function(){
 		//var data2 = [4, 5, 1, 9, 2, 1, 6, 2, 2, 9, 2, 5, 9, 3, 6, 3, 6, 2, 7, 5, 2, 1, 3, 8, 9, 2, 5, 9, 2, 7];
 
 		// X scale will fit all values from data[] within pixels 0-w
-		var x = d3.scale.linear().domain([0, 5.5]).range([0, w]);
+		var x = d3.scale.linear().domain([.25, 5.5]).range([0, w]);
 		// Y scale will fit values from 0-10 within pixels h-0 (Note the inverted domain for the y-scale: bigger is up!)
 		var y = d3.scale.linear().domain([0,200]).range([h, 0]);
 			// automatically determining max range can work something like this
@@ -184,7 +184,7 @@ $(function(){
 				// verbose logging to show what's actually being done
 				console.log('Plotting X value for data point: ' + d + ' using index: ' + i + ' to be at: ' + x(i) + ' using our xScale.');
 				// return the X coordinate where we want to plot this datapoint
-				return x(i*.25) + 25; 
+				return x(i*.25) + 35; 
 			})
 			.y(function(d) { 
 				// verbose logging to show what's actually being done
