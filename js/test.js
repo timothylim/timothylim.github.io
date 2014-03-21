@@ -156,7 +156,7 @@ $(function(){
 		var h = 400 - m[0] - m[2]; // height
 		
 		var formulaOutput = [];
-		for(var x = 1; x < 23; x++{
+		for(var x = 1; x < 23; x++){
 			formulaOutput.push(getSA(x*.25));
 		}
 		function getSA(r){
