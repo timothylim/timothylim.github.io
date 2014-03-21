@@ -198,7 +198,7 @@ h3 {
 	display: inline-block;
 }
 
-#speedText, #readText, #typingOutput{
+#speedText, #readText, #typingOutput, #graphText{
 	width:740px;
 	margin: 0 auto;
 }
@@ -212,29 +212,29 @@ h3 {
 
 
 			/* tell the SVG path to be a thin blue line without any area fill */
-			path {
-				stroke: steelblue;
-				stroke-width: 1;
-				fill: none;
-			}
+path {
+	stroke: steelblue;
+	stroke-width: 1;
+	fill: none;
+}
 			
-			.axis {
-			  shape-rendering: crispEdges;
-			}
+.axis {
+    shape-rendering: crispEdges;
+}
 
-			.x.axis line {
-			  stroke: lightgrey;
-			}
+.x.axis line {
+    stroke: lightgrey;
+}
 
-			.x.axis .minor {
-			  stroke-opacity: .5;
-			}
+.x.axis .minor {
+    stroke-opacity: .5;
+}
 
-			.x.axis path {
-			  display: none;
-			}
+.x.axis path {
+    display: none;
+}
 
-			.y.axis line, .y.axis path {
-			  fill: none;
-			  stroke: #000;
-			}
+.y.axis line, .y.axis path {
+	fill: none;
+    stroke: #000;
+}
