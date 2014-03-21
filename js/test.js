@@ -156,8 +156,8 @@ $(function(){
 		var h = 400 - m[0] - m[2]; // height
 		
 		var formulaOutput = [];
-		for(var x = .25; x < 5.5; x+.25){
-			formulaOutput.push(getSA(x));
+		for(var x = 1; x < 23; x++{
+			formulaOutput.push(getSA(x*.25));
 		}
 		function getSA(r){
 			var rsq = Math.pow(r, 2);
