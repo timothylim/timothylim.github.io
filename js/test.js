@@ -127,7 +127,7 @@ $(function(){
 		    	clearInterval(timer);
 				timer = null;
 				$("#typingText").prop('disabled', true);
-				var totalCorrectChars = $('.greenHighlight').text().replace(/ /g, '').length;
+				var totalCorrectChars = $('.greenHighlight').text()/*.replace(/ /g, '')*/.length;
 				// In general, there are 5 characters in words
 				var averageWords = totalCorrectChars / 5;
 				var wpm = averageWords/(60/60);
@@ -184,7 +184,7 @@ $(function(){
 				// verbose logging to show what's actually being done
 				console.log('Plotting X value for data point: ' + d + ' using index: ' + i + ' to be at: ' + x(i) + ' using our xScale.');
 				// return the X coordinate where we want to plot this datapoint
-				return x(i*.25) + 35; 
+				return x(i*.25) + 50; 
 			})
 			.y(function(d) { 
 				// verbose logging to show what's actually being done
