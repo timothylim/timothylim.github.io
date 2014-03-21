@@ -155,16 +155,17 @@ $(function(){
 		var w = 1000 - m[1] - m[3]; // width
 		var h = 400 - m[0] - m[2]; // height
 		
-		var formulaOutput = [];
+		var twelveOz = [];
+		var sevenfiveOz = [];
+
 		for(var x = 1; x < 23; x++){
-			formulaOutput.push(getSA(x*.25));
+			twelveOz.push(getSA(x*.25, 21.656));
+			sevenfiveOz.push(getSA(x*.25, 13.535));
 		}
-		function getSA(r){
+		function getSA(r, v){
 			var rsq = Math.pow(r, 2);
-			return 2*3.141*rsq + (2*3.141*r *21.656 /(3.141 * rsq))
+			return 2*3.141*rsq + (2*3.141*r *v /(3.141 * rsq))
 		}
-		var data = formulaOutput;
-		var indices = d3.range(0, data.length);
 
 		// create a simple data array that we'll plot with a line (this array represents only the Y values, X will just be the index location)
 		//var data = [3, 6, 2, 7, 5, 2, 0, 3, 8, 9, 2, 5, 9, 3, 6, 3, 6, 2, 7, 5, 2, 1, 3, 8, 9, 2, 5, 9, 2, 7];
@@ -184,7 +185,7 @@ $(function(){
 				// verbose logging to show what's actually being done
 				console.log('Plotting X value for data point: ' + d + ' using index: ' + i + ' to be at: ' + x(i) + ' using our xScale.');
 				// return the X coordinate where we want to plot this datapoint
-				return x(i*.25) + 45; 
+				return x(i*.25) + 43; 
 			})
 			.y(function(d) { 
 				// verbose logging to show what's actually being done
@@ -219,8 +220,9 @@ $(function(){
 			
   			// Add the line by appending an svg:path element with the data line we created above
 			// do this AFTER the axes above so that the line is above the tick-lines
-  			graph.append("svg:path").attr("d", line(data));
-			
+  			graph.append("svg:path").attr("d", line(twelveOz));
+			graph.append("svg:path").attr("d", line(sevenfiveOz));
+
 
 
 
