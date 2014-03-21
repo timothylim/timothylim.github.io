@@ -184,7 +184,7 @@ $(function(){
 				// verbose logging to show what's actually being done
 				console.log('Plotting X value for data point: ' + d + ' using index: ' + i + ' to be at: ' + x(i) + ' using our xScale.');
 				// return the X coordinate where we want to plot this datapoint
-				return x(i*.25) + 25px; 
+				return x(i*.25) + 25; 
 			})
 			.y(function(d) { 
 				// verbose logging to show what's actually being done
