@@ -223,6 +223,115 @@ $(function(){
 		graph.append("svg:path").attr("d", line(twelveOz));
 		graph.append("svg:path").attr("d", line(sevenfiveOz));
 		$('path').last().css('stroke', 'red')
+//maze logic
 
+var lastCell = 0, pathCount = 0;
+            var size = 0;
+            $('#applySize').click(function () {
+                size = parseFloat($('#tableSize').val());
+                var cellID = 0;
+                for (var x = 0; x < size; x++) {
+                    var td = '<tr>'
+                    for(var y=0; y < size; y++){
+                        td += '<td class="cell" id="'+cellID+'"></td>'
+                        cellID++;
+                    }
+                    td += '</tr>';                
+                    $('#grid').append(td);
+                }
+                $('.cell').mousedown(function (e) {
+                    e.originalEvent.preventDefault();
+                    $(this).css({ background: "yellow" });
+                    lastCell = parseFloat($(this).attr('id'));//++pathCount;
+                    pathCount += 1;
+                    $(this).addClass("" + pathCount + "");
+                });
+
+                var cellStack = [];
+                var totalCells = 36;
+                var curCell = 0;
+                var visitedCells = 1;
+                while (visitedCells < totalCells) {
+                    var neighbor = checkAllWalls(curCell);
+                    if (neighbor) {
+                        removeWall(curCell, neighbor);
+                        cellStack.push(curCell);
+                        curCell = neighbor;
+                        visitedCells++;
+                    }
+                    else {
+                        var poppedVal = cellStack.pop();
+                        curCell = poppedVal;
+                    }
+                }
+            });
+
+
+            $(document).mousedown(function () {
+                $(".cell").bind('mouseover', function () {
+                    var currentCell = parseFloat($(this).attr('id'));
+                    var lastClass = $(this).attr('class').split(' ').pop();
+                    if (lastClass == pathCount - 1) {
+                        $('.' + pathCount).css({ background: "lightgrey" })
+                        $('.' + pathCount).removeClass("" + pathCount + "");
+                        pathCount -= 1;
+                        lastCell = currentCell;
+                    }
+                    else if (currentCell == lastCell + 1 || currentCell == lastCell - 1 || currentCell ==lastCell - size ||currentCell == lastCell + size) {
+                        $(this).css({ background: "yellow" });
+                        lastCell = currentCell;//++pathCount;
+                        pathCount += 1;
+                        $(this).addClass("" + pathCount + "");
+                    }
+                });
+            })
+            .mouseup(function () {
+                $(".cell").unbind('mouseover');
+            });
+
+
+
+
+            // checks for neighbors with all walls intact and returns random one
+            function checkAllWalls(currentCell) {
+                var wallsIntact = [];
+                if ($('#' + (currentCell + 1)) && currentCell % size != 5 && $('#' + (currentCell + 1)).css('border')) {
+                    wallsIntact.push(currentCell + 1);
+                }
+                if ($('#' + (currentCell - 1)) && currentCell % size != 0 && $('#' + (currentCell - 1)).css('border')) {
+                    wallsIntact.push(currentCell - 1);
+                }
+                if ($('#' + (currentCell + size)) && $('#' + (currentCell + size)).css('border')) {
+                    wallsIntact.push(currentCell + size);
+                }
+                if ($('#' + (currentCell - size)) && $('#' + (currentCell - size)).css('border')) {
+                    wallsIntact.push(currentCell - size);
+                }
+                return wallsIntact[Math.floor(Math.random() * wallsIntact.length)]
+            }
+
+            function removeWall(currentCell, neighbor) {
+                var separation = currentCell - neighbor;
+                switch (separation) {
+                    case size:
+                        $('#' + neighbor).css('border-bottom-style', 'none');
+                        $('#' + currentCell).css('border-top-style', 'none');
+                        break;
+                    case 1:
+                        $('#' + neighbor).css('border-right-style', 'none');
+                        $('#' + currentCell).css('border-left-style', 'none');
+                        break;
+                    case -1:
+                        $('#' + neighbor).css('border-left-style', 'none');
+                        $('#' + currentCell).css('border-right-style', 'none');
+                        break;
+                    case -size:
+                        $('#' + currentCell).css('border-bottom-style', 'none');
+                        $('#' + neighbor).css('border-top-style', 'none');
+                        break;
+                    default:
+                        console.log('not a valid wall neighbor');
+                }
+            }
 
 });
