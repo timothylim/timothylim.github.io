@@ -72,8 +72,11 @@
 	This is a plot using the d3.js library.  It plots the surface area of a cylinder (in<sup>3</sup>) against the radius (inches) for a fixed volume.  The blue line is for 12 oz where the surface area is optimal at 1.5 in.  The red line is 7.5 oz, or the same volume as the smaller cans of soda.  
 </div>	<div id="graph" class="aGraph" style="text-align:center;"></div>
 
-    <div>
-        <input id="tableSize" type="text" placeholder="grid size" value="6"/>
+    <div id='maze'>
+    <div id='graphText'>
+	This is a maze generator.  Using a depth first search algorithm, I create a maze that has only one path from any point in the maze to  another. Input the size of a maze to be created.  The path highlighting is currently under construction and will be updated.  
+	</div>
+        <input id="tableSize" type="text" placeholder="grid size"/>
         <input id="applySize" type="button" value="Apply" />
 
     <table id="grid">

@@ -198,7 +198,7 @@ h3 {
 	display: inline-block;
 }
 
-#speedText, #readText, #typingOutput, #graphText{
+#speedText, #readText, #typingOutput, #graphText, #maze{
 	width:740px;
 	margin: 0 auto;
 }

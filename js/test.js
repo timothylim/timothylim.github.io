@@ -150,188 +150,187 @@ $(function(){
 
 
 
-			// define dimensions of graph
-		var m = [80, 80, 80, 80]; // margins
-		var w = 1000 - m[1] - m[3]; // width
-		var h = 400 - m[0] - m[2]; // height
+		// define dimensions of graph
+	var m = [80, 80, 80, 80]; // margins
+	var w = 1000 - m[1] - m[3]; // width
+	var h = 400 - m[0] - m[2]; // height
+	
+	var twelveOz = [];
+	var sevenfiveOz = [];
+
+	for(var x = 1; x < 23; x++){
+		twelveOz.push(getSA(x*.25, 21.656));
+		sevenfiveOz.push(getSA(x*.25, 13.535));
+	}
+	function getSA(r, v){
+		var rsq = Math.pow(r, 2);
+		return 2*3.141*rsq + (2*3.141*r *v /(3.141 * rsq))
+	}
+
+	// create a simple data array that we'll plot with a line (this array represents only the Y values, X will just be the index location)
+	//var data = [3, 6, 2, 7, 5, 2, 0, 3, 8, 9, 2, 5, 9, 3, 6, 3, 6, 2, 7, 5, 2, 1, 3, 8, 9, 2, 5, 9, 2, 7];
+	//var data2 = [4, 5, 1, 9, 2, 1, 6, 2, 2, 9, 2, 5, 9, 3, 6, 3, 6, 2, 7, 5, 2, 1, 3, 8, 9, 2, 5, 9, 2, 7];
+
+	// X scale will fit all values from data[] within pixels 0-w
+	var x = d3.scale.linear().domain([.25, 5.5]).range([0, w]);
+	// Y scale will fit values from 0-10 within pixels h-0 (Note the inverted domain for the y-scale: bigger is up!)
+	var y = d3.scale.linear().domain([0,200]).range([h, 0]);
+		// automatically determining max range can work something like this
+		// var y = d3.scale.linear().domain([0, d3.max(data)]).range([h, 0]);
+
+	// create a line function that can convert data[] into x and y points
+	var line = d3.svg.line()
+		// assign the X function to plot our line as we wish
+		.x(function(d,i) { 
+			// verbose logging to show what's actually being done
+			console.log('Plotting X value for data point: ' + d + ' using index: ' + i + ' to be at: ' + x(i) + ' using our xScale.');
+			// return the X coordinate where we want to plot this datapoint
+			return x(i*.25) + 43; 
+		})
+		.y(function(d) { 
+			// verbose logging to show what's actually being done
+			console.log('Plotting Y value for data point: ' + d + ' to be at: ' + y(d) + " using our yScale.");
+			// return the Y coordinate where we want to plot this datapoint
+			return y(d); 
+		})
+
+		// Add an SVG element with the desired dimensions and margin.
+	var graph = d3.select("#graph").append("svg:svg")
+	      .attr("width", w + m[1] + m[3])
+	      .attr("height", h + m[0] + m[2])
+		      .append("svg:g")
+	      .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
+
+		// create yAxis
+	var xAxis = d3.svg.axis().scale(x).tickSize(-h).tickSubdivide(true);
+		// Add the x-axis.
+	graph.append("svg:g")
+	      .attr("class", "x axis")
+	      .attr("transform", "translate(0," + h + ")")
+	      .call(xAxis);
+
+
+		// create left yAxis
+	var yAxisLeft = d3.svg.axis().scale(y).ticks(4).orient("left");
+		// Add the y-axis to the left
+	graph.append("svg:g")
+	      .attr("class", "y axis")
+	      .attr("transform", "translate(-25,0)")
+	      .call(yAxisLeft);
 		
-		var twelveOz = [];
-		var sevenfiveOz = [];
-
-		for(var x = 1; x < 23; x++){
-			twelveOz.push(getSA(x*.25, 21.656));
-			sevenfiveOz.push(getSA(x*.25, 13.535));
-		}
-		function getSA(r, v){
-			var rsq = Math.pow(r, 2);
-			return 2*3.141*rsq + (2*3.141*r *v /(3.141 * rsq))
-		}
-
-		// create a simple data array that we'll plot with a line (this array represents only the Y values, X will just be the index location)
-		//var data = [3, 6, 2, 7, 5, 2, 0, 3, 8, 9, 2, 5, 9, 3, 6, 3, 6, 2, 7, 5, 2, 1, 3, 8, 9, 2, 5, 9, 2, 7];
-		//var data2 = [4, 5, 1, 9, 2, 1, 6, 2, 2, 9, 2, 5, 9, 3, 6, 3, 6, 2, 7, 5, 2, 1, 3, 8, 9, 2, 5, 9, 2, 7];
-
-		// X scale will fit all values from data[] within pixels 0-w
-		var x = d3.scale.linear().domain([.25, 5.5]).range([0, w]);
-		// Y scale will fit values from 0-10 within pixels h-0 (Note the inverted domain for the y-scale: bigger is up!)
-		var y = d3.scale.linear().domain([0,200]).range([h, 0]);
-			// automatically determining max range can work something like this
-			// var y = d3.scale.linear().domain([0, d3.max(data)]).range([h, 0]);
-
-		// create a line function that can convert data[] into x and y points
-		var line = d3.svg.line()
-			// assign the X function to plot our line as we wish
-			.x(function(d,i) { 
-				// verbose logging to show what's actually being done
-				console.log('Plotting X value for data point: ' + d + ' using index: ' + i + ' to be at: ' + x(i) + ' using our xScale.');
-				// return the X coordinate where we want to plot this datapoint
-				return x(i*.25) + 43; 
-			})
-			.y(function(d) { 
-				// verbose logging to show what's actually being done
-				console.log('Plotting Y value for data point: ' + d + ' to be at: ' + y(d) + " using our yScale.");
-				// return the Y coordinate where we want to plot this datapoint
-				return y(d); 
-			})
-
-			// Add an SVG element with the desired dimensions and margin.
-		var graph = d3.select("#graph").append("svg:svg")
-		      .attr("width", w + m[1] + m[3])
-		      .attr("height", h + m[0] + m[2])
-  		      .append("svg:g")
-		      .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
-
-			// create yAxis
-		var xAxis = d3.svg.axis().scale(x).tickSize(-h).tickSubdivide(true);
-			// Add the x-axis.
-		graph.append("svg:g")
-		      .attr("class", "x axis")
-		      .attr("transform", "translate(0," + h + ")")
-		      .call(xAxis);
-
-
-			// create left yAxis
-		var yAxisLeft = d3.svg.axis().scale(y).ticks(4).orient("left");
-			// Add the y-axis to the left
-		graph.append("svg:g")
-		      .attr("class", "y axis")
-		      .attr("transform", "translate(-25,0)")
-		      .call(yAxisLeft);
-			
-  			// Add the line by appending an svg:path element with the data line we created above
-			// do this AFTER the axes above so that the line is above the tick-lines
-		graph.append("svg:path").attr("d", line(twelveOz));
-		graph.append("svg:path").attr("d", line(sevenfiveOz));
-		$('path').last().css('stroke', 'red')
+			// Add the line by appending an svg:path element with the data line we created above
+		// do this AFTER the axes above so that the line is above the tick-lines
+	graph.append("svg:path").attr("d", line(twelveOz));
+	graph.append("svg:path").attr("d", line(sevenfiveOz));
+	$('path').last().css('stroke', 'red')
 //maze logic
 
-var lastCell = 0, pathCount = 0;
-            var size = 0;
-            $('#applySize').click(function () {
-                size = parseFloat($('#tableSize').val());
-                var cellID = 0;
-                for (var x = 0; x < size; x++) {
-                    var td = '<tr>'
-                    for(var y=0; y < size; y++){
-                        td += '<td class="cell" id="'+cellID+'"></td>'
-                        cellID++;
-                    }
-                    td += '</tr>';                
-                    $('#grid').append(td);
-                }
-                $('.cell').mousedown(function (e) {
-                    e.originalEvent.preventDefault();
-                    $(this).css({ background: "yellow" });
-                    lastCell = parseFloat($(this).attr('id'));//++pathCount;
-                    pathCount += 1;
-                    $(this).addClass("" + pathCount + "");
-                });
-
-                var cellStack = [];
-                var totalCells = 36;
-                var curCell = 0;
-                var visitedCells = 1;
-                while (visitedCells < totalCells) {
-                    var neighbor = checkAllWalls(curCell);
-                    if (neighbor) {
-                        removeWall(curCell, neighbor);
-                        cellStack.push(curCell);
-                        curCell = neighbor;
-                        visitedCells++;
-                    }
-                    else {
-                        var poppedVal = cellStack.pop();
-                        curCell = poppedVal;
-                    }
-                }
-            });
-
-
-            $(document).mousedown(function () {
-                $(".cell").bind('mouseover', function () {
-                    var currentCell = parseFloat($(this).attr('id'));
-                    var lastClass = $(this).attr('class').split(' ').pop();
-                    if (lastClass == pathCount - 1) {
-                        $('.' + pathCount).css({ background: "lightgrey" })
-                        $('.' + pathCount).removeClass("" + pathCount + "");
-                        pathCount -= 1;
-                        lastCell = currentCell;
-                    }
-                    else if (currentCell == lastCell + 1 || currentCell == lastCell - 1 || currentCell ==lastCell - size ||currentCell == lastCell + size) {
-                        $(this).css({ background: "yellow" });
-                        lastCell = currentCell;//++pathCount;
-                        pathCount += 1;
-                        $(this).addClass("" + pathCount + "");
-                    }
-                });
-            })
-            .mouseup(function () {
-                $(".cell").unbind('mouseover');
-            });
-
-
-
-
-            // checks for neighbors with all walls intact and returns random one
-            function checkAllWalls(currentCell) {
-                var wallsIntact = [];
-                if ($('#' + (currentCell + 1)) && currentCell % size != 5 && $('#' + (currentCell + 1)).css('border')) {
-                    wallsIntact.push(currentCell + 1);
-                }
-                if ($('#' + (currentCell - 1)) && currentCell % size != 0 && $('#' + (currentCell - 1)).css('border')) {
-                    wallsIntact.push(currentCell - 1);
-                }
-                if ($('#' + (currentCell + size)) && $('#' + (currentCell + size)).css('border')) {
-                    wallsIntact.push(currentCell + size);
-                }
-                if ($('#' + (currentCell - size)) && $('#' + (currentCell - size)).css('border')) {
-                    wallsIntact.push(currentCell - size);
-                }
-                return wallsIntact[Math.floor(Math.random() * wallsIntact.length)]
+	var lastCell = 0, pathCount = 0;
+    var size = 0;
+    $('#applySize').click(function () {
+        size = parseFloat($('#tableSize').val());
+        var cellID = 0;
+        for (var x = 0; x < size; x++) {
+            var td = '<tr>'
+            for(var y=0; y < size; y++){
+                td += '<td class="cell" id="'+cellID+'"></td>'
+                cellID++;
             }
+            td += '</tr>';                
+            $('#grid').append(td);
+        }
+        $('.cell').mousedown(function (e) {
+            e.originalEvent.preventDefault();
+            $(this).css({ background: "yellow" });
+            lastCell = parseFloat($(this).attr('id'));//++pathCount;
+            pathCount += 1;
+            $(this).addClass("" + pathCount + "");
+        });
 
-            function removeWall(currentCell, neighbor) {
-                var separation = currentCell - neighbor;
-                switch (separation) {
-                    case size:
-                        $('#' + neighbor).css('border-bottom-style', 'none');
-                        $('#' + currentCell).css('border-top-style', 'none');
-                        break;
-                    case 1:
-                        $('#' + neighbor).css('border-right-style', 'none');
-                        $('#' + currentCell).css('border-left-style', 'none');
-                        break;
-                    case -1:
-                        $('#' + neighbor).css('border-left-style', 'none');
-                        $('#' + currentCell).css('border-right-style', 'none');
-                        break;
-                    case -size:
-                        $('#' + currentCell).css('border-bottom-style', 'none');
-                        $('#' + neighbor).css('border-top-style', 'none');
-                        break;
-                    default:
-                        console.log('not a valid wall neighbor');
-                }
+        var cellStack = [];
+        var totalCells = size*2;
+        var curCell = 0;
+        var visitedCells = 1;
+        while (visitedCells < totalCells) {
+            var neighbor = checkAllWalls(curCell);
+            if (neighbor) {
+                removeWall(curCell, neighbor);
+                cellStack.push(curCell);
+                curCell = neighbor;
+                visitedCells++;
             }
+            else {
+                var poppedVal = cellStack.pop();
+                curCell = poppedVal;
+            }
+        }
+    });
 
+
+    $(document).mousedown(function () {
+        $(".cell").bind('mouseover', function () {
+            var currentCell = parseFloat($(this).attr('id'));
+            var lastClass = $(this).attr('class').split(' ').pop();
+            if (lastClass == pathCount - 1) {
+                $('.' + pathCount).css({ background: "lightgrey" })
+                $('.' + pathCount).removeClass("" + pathCount + "");
+                pathCount -= 1;
+                lastCell = currentCell;
+            }
+            else if (currentCell == lastCell + 1 || currentCell == lastCell - 1 || currentCell ==lastCell - size ||currentCell == lastCell + size) {
+                $(this).css({ background: "yellow" });
+                lastCell = currentCell;//++pathCount;
+                pathCount += 1;
+                $(this).addClass("" + pathCount + "");
+            }
+        });
+    })
+    .mouseup(function () {
+        $(".cell").unbind('mouseover');
+    });
+
+
+
+
+    // checks for neighbors with all walls intact and returns random one
+    function checkAllWalls(currentCell) {
+        var wallsIntact = [];
+        if ($('#' + (currentCell + 1)) && currentCell % size != 5 && $('#' + (currentCell + 1)).css('border')) {
+            wallsIntact.push(currentCell + 1);
+        }
+        if ($('#' + (currentCell - 1)) && currentCell % size != 0 && $('#' + (currentCell - 1)).css('border')) {
+            wallsIntact.push(currentCell - 1);
+        }
+        if ($('#' + (currentCell + size)) && $('#' + (currentCell + size)).css('border')) {
+            wallsIntact.push(currentCell + size);
+        }
+        if ($('#' + (currentCell - size)) && $('#' + (currentCell - size)).css('border')) {
+            wallsIntact.push(currentCell - size);
+        }
+        return wallsIntact[Math.floor(Math.random() * wallsIntact.length)]
+    }
+
+    function removeWall(currentCell, neighbor) {
+        var separation = currentCell - neighbor;
+        switch (separation) {
+            case size:
+                $('#' + neighbor).css('border-bottom-style', 'none');
+                $('#' + currentCell).css('border-top-style', 'none');
+                break;
+            case 1:
+                $('#' + neighbor).css('border-right-style', 'none');
+                $('#' + currentCell).css('border-left-style', 'none');
+                break;
+            case -1:
+                $('#' + neighbor).css('border-left-style', 'none');
+                $('#' + currentCell).css('border-right-style', 'none');
+                break;
+            case -size:
+                $('#' + currentCell).css('border-bottom-style', 'none');
+                $('#' + neighbor).css('border-top-style', 'none');
+                break;
+            default:
+        console.log('not a valid wall neighbor');
+    	}
+	}
 });
