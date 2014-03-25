@@ -245,9 +245,6 @@ path {
     margin: 1em 0;
     border-collapse: collapse;
   }
-  tr {
-    border: 1px solid #666;
-  }
   th {
     background: #ccf;
     border: 1px solid;
