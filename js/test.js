@@ -248,7 +248,7 @@ $(function(){
         });
 
         var cellStack = [];
-        var totalCells = size*2;
+        var totalCells = size*size;
         var curCell = 0;
         var visitedCells = 1;
         while (visitedCells < totalCells) {
