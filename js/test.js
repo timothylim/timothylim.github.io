@@ -228,6 +228,9 @@ $(function(){
 	var lastCell = 0, pathCount = 0;
     var size = 0;
     $('#applySize').click(function () {
+    	if($('.cell').length){
+    		$('tbody').remove();
+
         size = parseFloat($('#tableSize').val());
         var cellID = 0;
         for (var x = 0; x < size; x++) {
