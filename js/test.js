@@ -228,7 +228,7 @@ $(function(){
 	var lastCell = 0, pathCount = 0;
     var size = 0;
     $('#applySize').click(function () {
-    	if($('.cell').length){
+    	if($('.cell').length)
     		$('tbody').remove();
 
         size = parseFloat($('#tableSize').val());
