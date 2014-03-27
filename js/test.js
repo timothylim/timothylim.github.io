@@ -280,7 +280,7 @@ $(function(){
                 pathCount -= 1;
                 lastCell = currentCell;
             }
-            switch(currentcell){
+            switch(currentCell){
             	case lastCell+1:
             		if(!$('#' + currentCell).css('border-left-style'))
             			$(this).css({ background: "yellow" });
