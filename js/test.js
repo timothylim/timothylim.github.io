@@ -280,22 +280,27 @@ $(function(){
                 pathCount -= 1;
                 lastCell = currentCell;
             }
-            switch(currentCell){
-            	case lastCell+1:
-            		if($('#' + currentCell).css('border-left-style') == "none")
-            			$(this).css({ background: "yellow" });
-            	case lastCell-1:
-            	    if($('#' + currentCell).css('border-right-style')== "none")
-            			$(this).css({ background: "yellow" });
-            	case lastCell-size:
-            		if($('#' + currentCell).css('border-bottom-style')== "none")
-            			$(this).css({ background: "yellow" });
-            	case lastCell+size:
-					if($('#' + currentCell).css('border-top-style') == "none")
-            			$(this).css({ background: "yellow" });
-            	default:
-            		console.log('not over active cell: ' + currentCell);
-            }
+            else{
+            	switch(currentCell){
+	            	case lastCell+1:
+	            		if($('#' + currentCell).css('border-left-style') == "none")
+	            			$(this).css({ background: "yellow" });
+	            	case lastCell-1:
+	            	    if($('#' + currentCell).css('border-right-style')== "none")
+	            			$(this).css({ background: "yellow" });
+	            	case lastCell-size:
+	            		if($('#' + currentCell).css('border-bottom-style')== "none")
+	            			$(this).css({ background: "yellow" });
+	            	case lastCell+size:
+						if($('#' + currentCell).css('border-top-style') == "none")
+	            			$(this).css({ background: "yellow" });
+	            	default:
+	            		console.log('not over active cell: ' + currentCell);
+	            }
+	            lastCell = currentCell;//++pathCount;
+	            pathCount += 1;
+	            $(this).addClass("" + pathCount + "");
+        	}
             /*else if (currentCell == lastCell + 1 || currentCell == lastCell - 1 || currentCell ==lastCell - size ||currentCell == lastCell + size) {
                 $(this).css({ background: "yellow" });
                 lastCell = currentCell;//++pathCount;
