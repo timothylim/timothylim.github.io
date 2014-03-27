@@ -280,12 +280,32 @@ $(function(){
                 pathCount -= 1;
                 lastCell = currentCell;
             }
-            else if (currentCell == lastCell + 1 || currentCell == lastCell - 1 || currentCell ==lastCell - size ||currentCell == lastCell + size) {
+            switch(currentcell){
+            	case lastCell+1:
+            		if(!$('#' + currentCell).css('border-left-style'))
+            			$(this).css({ background: "yellow" });
+            		break;
+            	case lastCell-1:
+            	    if(!$('#' + currentCell).css('border-right-style'))
+            			$(this).css({ background: "yellow" });
+            		break;
+            	case lastCell-size:
+            		if(!$('#' + currentCell).css('border-bottom-style'))
+            			$(this).css({ background: "yellow" });
+            		break;
+            	case lastCell+size:
+					if(!$('#' + currentCell).css('border-top-style'))
+            			$(this).css({ background: "yellow" });
+            		break;
+            	default:
+            		console.log('not over active cell: '+currentcell);
+            }
+            /*else if (currentCell == lastCell + 1 || currentCell == lastCell - 1 || currentCell ==lastCell - size ||currentCell == lastCell + size) {
                 $(this).css({ background: "yellow" });
                 lastCell = currentCell;//++pathCount;
                 pathCount += 1;
                 $(this).addClass("" + pathCount + "");
-            }
+            }*/
         });
     })
     .mouseup(function () {
