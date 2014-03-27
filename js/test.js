@@ -282,19 +282,19 @@ $(function(){
             }
             switch(currentCell){
             	case lastCell+1:
-            		if(!$('#' + currentCell).css('border-left-style'))
+            		if(!$('#' + lastCell).css('border-left-style'))
             			$(this).css({ background: "yellow" });
             		break;
             	case lastCell-1:
-            	    if(!$('#' + currentCell).css('border-right-style'))
+            	    if(!$('#' + lastCell).css('border-right-style'))
             			$(this).css({ background: "yellow" });
             		break;
             	case lastCell-size:
-            		if(!$('#' + currentCell).css('border-bottom-style'))
+            		if(!$('#' + lastCell).css('border-bottom-style'))
             			$(this).css({ background: "yellow" });
             		break;
             	case lastCell+size:
-					if(!$('#' + currentCell).css('border-top-style'))
+					if(!$('#' + lastCell).css('border-top-style'))
             			$(this).css({ background: "yellow" });
             		break;
             	default:
