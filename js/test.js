@@ -298,16 +298,16 @@ $(function(){
     // checks for neighbors with all walls intact and returns random one
     function checkAllWalls(currentCell) {
         var wallsIntact = [];
-        if ($('#' + (currentCell + 1)) && currentCell % size != (size-1) && $('#' + (currentCell + 1)).css('border')) {
+        if ($('#' + (currentCell + 1)) && currentCell % size != (size-1) && $('#' + (currentCell + 1)).css('border')  && !$('#' + (currentCell + 1)).css('border').match('none')) {
             wallsIntact.push(currentCell + 1);
         }
-        if ($('#' + (currentCell - 1)) && currentCell % size != 0 && $('#' + (currentCell - 1)).css('border')) {
+        if ($('#' + (currentCell - 1)) && currentCell % size != 0 && $('#' + (currentCell - 1)).css('border') && !$('#' + (currentCell - 1)).css('border').match('none')) {
             wallsIntact.push(currentCell - 1);
         }
-        if ($('#' + (currentCell + size)) && $('#' + (currentCell + size)).css('border')) {
+        if ($('#' + (currentCell + size)) && $('#' + (currentCell + size)).css('border') && !$('#' + (currentCell + size)).css('border').match('none')) {
             wallsIntact.push(currentCell + size);
         }
-        if ($('#' + (currentCell - size)) && $('#' + (currentCell - size)).css('border')) {
+        if ($('#' + (currentCell - size)) && $('#' + (currentCell - size)).css('border') && !$('#' + (currentCell - size)).css('border').match('none')) {
             wallsIntact.push(currentCell - size);
         }
         return wallsIntact[Math.floor(Math.random() * wallsIntact.length)]
