@@ -284,19 +284,19 @@ $(function(){
             	case lastCell+1:
             		if($('#' + currentCell).css('border-left-style') == "none")
             			$(this).css({ background: "yellow" });
-            		break;
+            		continue;
             	case lastCell-1:
             	    if($('#' + currentCell).css('border-right-style')== "none")
             			$(this).css({ background: "yellow" });
-            		break;
+            		continue;
             	case lastCell-size:
             		if($('#' + currentCell).css('border-bottom-style')== "none")
             			$(this).css({ background: "yellow" });
-            		break;
+            		continue;
             	case lastCell+size:
 					if($('#' + currentCell).css('border-top-style') == "none")
             			$(this).css({ background: "yellow" });
-            		break;
+            		continue;
             	default:
             		console.log('not over active cell: ' + currentCell);
             }
