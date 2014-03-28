@@ -451,5 +451,5 @@ $(function(){
         console.log('not a valid wall neighbor');
     	}
 	}
-	$('#applySize').click();
+	//$('#applySize').click();
 });
