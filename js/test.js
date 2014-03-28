@@ -331,8 +331,10 @@ $(function(){
     			if ($('#' + (currentCell + 1)) && currentCell % size != (size-1) && $('#' + (currentCell + 1)).css('border')  && !$('#' + (currentCell + 1)).css('border').match('none')) {
 	    			removeWall(currentCell, currentCell+1);
 	    			newCell = currentCell+1;
-	    			if (checkAllWalls(currentCell+1) == undefined) 
+	    			if (checkAllWalls(currentCell+1) == undefined){
 	    				hunt();
+	    				return;
+	    			}
     			}
     			else{
     				if (checkAllWalls(currentCell+1) == undefined) 
@@ -344,8 +346,10 @@ $(function(){
     		    if ($('#' + (currentCell + size)) && $('#' + (currentCell + size)).css('border') && !$('#' + (currentCell + size)).css('border').match('none')) {
 	    		    removeWall(currentCell, currentCell+size);
 	    			newCell = currentCell+size;
-	    			if (checkAllWalls(currentCell+size) == undefined) 
+	    			if (checkAllWalls(currentCell+size) == undefined){
 	    				hunt();
+	    				return;
+	    			}
     			}
     			else{
     				if (checkAllWalls(currentCell+size) == undefined) 
@@ -357,8 +361,10 @@ $(function(){
     		    if ($('#' + (currentCell - 1)) && currentCell % size != 0 && $('#' + (currentCell - 1)).css('border') && !$('#' + (currentCell - 1)).css('border').match('none')) {
 	    		    removeWall(currentCell, currentCell-1);
 	    			newCell = currentCell-1;
-	    			if (checkAllWalls(currentCell-1) == undefined) 
+	    			if (checkAllWalls(currentCell-1) == undefined) {
 	    				hunt();
+	    				return;
+	    			}
     			}
     			else{
     				if (checkAllWalls(currentCell-1) == undefined) 
@@ -370,8 +376,10 @@ $(function(){
 		        if ($('#' + (currentCell - size)) && $('#' + (currentCell - size)).css('border') && !$('#' + (currentCell - size)).css('border').match('none')) {
 	    		    removeWall(currentCell, currentCell-size);
 	    			newCell = currentCell-size;
-	    			if (checkAllWalls(currentCell-size) == undefined) 
+	    			if (checkAllWalls(currentCell-size) == undefined){ 
 	    				hunt();
+	    				return;
+					}
      			}
     			else{
     				if (checkAllWalls(currentCell-size) == undefined) 
