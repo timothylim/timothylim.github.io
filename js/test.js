@@ -335,6 +335,8 @@ $(function(){
 	    				hunt();
     			}
     			else{
+    				if (checkAllWalls(currentCell+1) == undefined) 
+	    				hunt();
     				newCell = currentCell;
     			}
     			break;
@@ -346,6 +348,8 @@ $(function(){
 	    				hunt();
     			}
     			else{
+    				if (checkAllWalls(currentCell+1) == undefined) 
+	    				hunt();
     				newCell = currentCell;
     			}
     			break;
@@ -357,6 +361,8 @@ $(function(){
 	    				hunt();
     			}
     			else{
+    				if (checkAllWalls(currentCell+1) == undefined) 
+	    				hunt();
     				newCell = currentCell;
     			}
     			break;
@@ -368,6 +374,8 @@ $(function(){
 	    				hunt();
      			}
     			else{
+    				if (checkAllWalls(currentCell+1) == undefined) 
+	    				hunt();
     				newCell = currentCell;
     			}
     			break;    			
