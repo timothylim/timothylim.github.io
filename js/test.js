@@ -339,7 +339,7 @@ $(function(){
     			}
     			break;
     		case directionEnum.Down:
-		        if ($('#' + (currentCell - size)) && $('#' + (currentCell - size)).css('border') && !$('#' + (currentCell - size)).css('border').match('none')) {
+    		    if ($('#' + (currentCell + size)) && $('#' + (currentCell + size)).css('border') && !$('#' + (currentCell + size)).css('border').match('none')) {
 	    		    removeWall(currentCell, currentCell+size);
 	    			newCell = currentCell+size;
 	    			if (checkAllWalls(currentCell+size) == undefined) 
@@ -361,7 +361,7 @@ $(function(){
     			}
     			break;
     		case directionEnum.Up:
-    		    if ($('#' + (currentCell + size)) && $('#' + (currentCell + size)).css('border') && !$('#' + (currentCell + size)).css('border').match('none')) {
+		        if ($('#' + (currentCell - size)) && $('#' + (currentCell - size)).css('border') && !$('#' + (currentCell - size)).css('border').match('none')) {
 	    		    removeWall(currentCell, currentCell-size);
 	    			newCell = currentCell-size;
 	    			if (checkAllWalls(currentCell-size) == undefined) 
