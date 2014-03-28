@@ -249,8 +249,8 @@ $(function(){
             pathCount += 1;
             $(this).addClass("" + pathCount + "");
         });
-        depthFirstSearch();
-
+        //depthFirstSearch();
+        randomWalk(0);
     });
 
 	function depthFirstSearch(){
