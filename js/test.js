@@ -372,7 +372,8 @@ $(function(){
     			}
     			break;    			
       	}
-      	randomWalk(newCell);
+      	if(newCell == currentCell)
+      	   	randomWalk(newCell);
     }
 
     function hunt(){
