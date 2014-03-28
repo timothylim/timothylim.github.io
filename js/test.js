@@ -390,7 +390,7 @@ $(function(){
 	    		var wallLength = checkAllWalls(i*10 + j, true).length
     			if(wallLength != undefined){
     				//if there is a neighbor with missing walls
-    				if(wallLength < 4){
+    				if(wallLength < 4 && wallLength >0){
     					randomWalk(i*10 + j);
     					return;
     				}
