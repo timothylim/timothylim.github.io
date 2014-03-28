@@ -324,7 +324,7 @@ $(function(){
     function randomWalk(currentCell){
     	
     	//need to check if the rando direction is valid
-    	var randomDir = Math.floor(Math.random() * wallsIntact.length);
+    	var randomDir = Math.floor(Math.random() * 4);
     	var newCell;
     	switch(randomDir){
     		case directionEnum.Right:
