@@ -392,7 +392,7 @@ $(function(){
     }
 
     // checks for neighbors with all walls intact and returns random one
-    function checkAllWalls(currentCell, returnArray?) {
+    function checkAllWalls(currentCell, returnArray) {
         var wallsIntact = [];
         if ($('#' + (currentCell + 1)) && currentCell % size != (size-1) && $('#' + (currentCell + 1)).css('border')  && !$('#' + (currentCell + 1)).css('border').match('none')) {
             wallsIntact.push(currentCell + 1);
