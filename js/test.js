@@ -334,8 +334,9 @@ $(function(){
 	    			if (checkAllWalls(currentCell+1) == undefined) {
 	    				hunt();
     			}
-    			else
+    			else{
     				newCell = currentCell;
+    			}
     			break;
     		case directionEnum.Down:
 		        if ($('#' + (currentCell - size)) && $('#' + (currentCell - size)).css('border') && !$('#' + (currentCell - size)).css('border').match('none')) {
@@ -344,8 +345,9 @@ $(function(){
 	    			if (checkAllWalls(currentCell+size) == undefined) {
 	    				hunt();
     			}
-    			else
+    			else{
     				newCell = currentCell;
+    			}
     			break;
     		case directionEnum.Left:
     		    if ($('#' + (currentCell - 1)) && currentCell % size != 0 && $('#' + (currentCell - 1)).css('border') && !$('#' + (currentCell - 1)).css('border').match('none')) {
@@ -354,8 +356,9 @@ $(function(){
 	    			if (checkAllWalls(currentCell-1) == undefined) {
 	    				hunt();
     			}
-    			else
+    			else{
     				newCell = currentCell;
+    			}
     			break;
     		case directionEnum.Up:
     		    if ($('#' + (currentCell + size)) && $('#' + (currentCell + size)).css('border') && !$('#' + (currentCell + size)).css('border').match('none')) {
@@ -364,8 +367,9 @@ $(function(){
 	    			if (checkAllWalls(currentCell-size) == undefined) {
 	    				hunt();
      			}
-    			else
+    			else{
     				newCell = currentCell;
+    			}
     			break;    			
       	}
       	randomWalk(newCell);
