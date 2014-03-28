@@ -249,8 +249,12 @@ $(function(){
             pathCount += 1;
             $(this).addClass("" + pathCount + "");
         });
+        depthFirstSearch();
 
-        var cellStack = [];
+    });
+
+	function depthFirstSearch(){
+		var cellStack = [];
         var totalCells = size*size;
         var curCell = 0;
         var visitedCells = 1;
@@ -267,8 +271,7 @@ $(function(){
                 curCell = poppedVal;
             }
         }
-    });
-
+	}
 
     $(document).mousedown(function () {
         $(".cell").bind('mouseover', function () {
@@ -305,23 +308,87 @@ $(function(){
 	            pathCount += 1;
 	            $(this).addClass("" + pathCount + "");
         	}
-            /*else if (currentCell == lastCell + 1 || currentCell == lastCell - 1 || currentCell ==lastCell - size ||currentCell == lastCell + size) {
-                $(this).css({ background: "yellow" });
-                lastCell = currentCell;//++pathCount;
-                pathCount += 1;
-                $(this).addClass("" + pathCount + "");
-            }*/
         });
     })
     .mouseup(function () {
         $(".cell").unbind('mouseover');
     });
 
+    var directionEnum = Object.freeze({
+    	"Right": 1,
+    	"Down":2,
+    	"Left":3,
+    	"Up":4
+    });
 
+    function randomWalk(currentCell){
+    	
+    	//need to check if the rando direction is valid
+    	var randomDir = Math.floor(Math.random() * wallsIntact.length);
+    	var newCell;
+    	switch(randomDir){
+    		case directionEnum.Right:
+    			if ($('#' + (currentCell + 1)) && currentCell % size != (size-1) && $('#' + (currentCell + 1)).css('border')  && !$('#' + (currentCell + 1)).css('border').match('none')) {
+	    			removeWall(currentCell, currentCell+1);
+	    			newCell = currentCell+1;
+	    			if (checkAllWalls(currentCell+1) == undefined) {
+	    				hunt();
+    			}
+    			else
+    				newCell = currentCell;
+    			break;
+    		case directionEnum.Down:
+		        if ($('#' + (currentCell - size)) && $('#' + (currentCell - size)).css('border') && !$('#' + (currentCell - size)).css('border').match('none')) {
+	    		    removeWall(currentCell, currentCell+size);
+	    			newCell = currentCell+size;
+	    			if (checkAllWalls(currentCell+size) == undefined) {
+	    				hunt();
+    			}
+    			else
+    				newCell = currentCell;
+    			break;
+    		case directionEnum.Left:
+    		    if ($('#' + (currentCell - 1)) && currentCell % size != 0 && $('#' + (currentCell - 1)).css('border') && !$('#' + (currentCell - 1)).css('border').match('none')) {
+	    		    removeWall(currentCell, currentCell-1);
+	    			newCell = currentCell-1;
+	    			if (checkAllWalls(currentCell-1) == undefined) {
+	    				hunt();
+    			}
+    			else
+    				newCell = currentCell;
+    			break;
+    		case directionEnum.Up:
+    		    if ($('#' + (currentCell + size)) && $('#' + (currentCell + size)).css('border') && !$('#' + (currentCell + size)).css('border').match('none')) {
+	    		    removeWall(currentCell, currentCell-size);
+	    			newCell = currentCell-size;
+	    			if (checkAllWalls(currentCell-size) == undefined) {
+	    				hunt();
+     			}
+    			else
+    				newCell = currentCell;
+    			break;    			
+      	}
+      	randomWalk(newCell);
+    }
 
+    function hunt(){
+    	for(var i=0; i<size; i++){
+	    	for(var j=0; j<size; j++){
+	    		//if there is a neighbor with intact walls
+	    		var wallLength = checkAllWalls(i*10 + j, true).length
+    			if(wallLength != undefined){
+    				//if there is a neighbor with missing walls
+    				if(wallLength < 4){
+    					randomWalk(i*10 + j);
+    					return;
+    				}
+    			}
+			}
+		}
+    }
 
     // checks for neighbors with all walls intact and returns random one
-    function checkAllWalls(currentCell) {
+    function checkAllWalls(currentCell, returnArray?) {
         var wallsIntact = [];
         if ($('#' + (currentCell + 1)) && currentCell % size != (size-1) && $('#' + (currentCell + 1)).css('border')  && !$('#' + (currentCell + 1)).css('border').match('none')) {
             wallsIntact.push(currentCell + 1);
@@ -334,6 +401,9 @@ $(function(){
         }
         if ($('#' + (currentCell - size)) && $('#' + (currentCell - size)).css('border') && !$('#' + (currentCell - size)).css('border').match('none')) {
             wallsIntact.push(currentCell - size);
+        }
+        if(returnArray){
+        	return wallsIntact;
         }
         return wallsIntact[Math.floor(Math.random() * wallsIntact.length)]
     }
