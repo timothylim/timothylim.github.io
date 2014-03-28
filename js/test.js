@@ -249,8 +249,8 @@ $(function(){
             pathCount += 1;
             $(this).addClass("" + pathCount + "");
         });
-        //depthFirstSearch();
-        randomWalk(0);
+        depthFirstSearch();
+        //randomWalk(0);
     });
 
 	function depthFirstSearch(){
@@ -400,8 +400,8 @@ $(function(){
     				//if there is a neighbor with missing walls
     				if(wallLength < 4 && wallLength >0){
     					randomWalk(i*10 + j);
-    					return;
     				}
+    				return;
     			}
 			}
 		}
