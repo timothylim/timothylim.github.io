@@ -348,7 +348,7 @@ $(function(){
 	    				hunt();
     			}
     			else{
-    				if (checkAllWalls(currentCell+1) == undefined) 
+    				if (checkAllWalls(currentCell+size) == undefined) 
 	    				hunt();
     				newCell = currentCell;
     			}
@@ -361,7 +361,7 @@ $(function(){
 	    				hunt();
     			}
     			else{
-    				if (checkAllWalls(currentCell+1) == undefined) 
+    				if (checkAllWalls(currentCell-1) == undefined) 
 	    				hunt();
     				newCell = currentCell;
     			}
@@ -374,7 +374,7 @@ $(function(){
 	    				hunt();
      			}
     			else{
-    				if (checkAllWalls(currentCell+1) == undefined) 
+    				if (checkAllWalls(currentCell-size) == undefined) 
 	    				hunt();
     				newCell = currentCell;
     			}
