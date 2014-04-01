@@ -4,6 +4,19 @@ console.log('welcome to my page!');
 console.log('               		 ***                  ***\n                    *****                *****\n                    *****                *****\n                     ***                  ***\n          ***                                        ***\n           ***                                      ***\n            ***                                    ***\n             ***                                  ***\n               ***                              ***\n                 ***                          ***\n                   ***                      ***\n                      **********************\n                         ****************\n')
 $(function(){
 	
+	//navigation
+	function gotoScroll(id){
+    	var id = id.replace("Nav", "");
+    	$('html,body').animate({
+        	scrollTop: ($("#"+id).offset().top - 155)},
+        	'slow');
+	}
+	$("#nav > span").click(function(e) { 
+	      // Prevent a page reload when a link is pressed
+	    e.preventDefault(); 
+	      // Call the scroll function
+	    gotoScroll($(this).attr("id"));           
+	});
 	//speed reading
 	var interval;
 	var storedInput;
@@ -167,9 +180,6 @@ $(function(){
 		return 2*3.141*rsq + (2*3.141*r *v /(3.141 * rsq))
 	}
 
-	// create a simple data array that we'll plot with a line (this array represents only the Y values, X will just be the index location)
-	//var data = [3, 6, 2, 7, 5, 2, 0, 3, 8, 9, 2, 5, 9, 3, 6, 3, 6, 2, 7, 5, 2, 1, 3, 8, 9, 2, 5, 9, 2, 7];
-	//var data2 = [4, 5, 1, 9, 2, 1, 6, 2, 2, 9, 2, 5, 9, 3, 6, 3, 6, 2, 7, 5, 2, 1, 3, 8, 9, 2, 5, 9, 2, 7];
 
 	// X scale will fit all values from data[] within pixels 0-w
 	var x = d3.scale.linear().domain([.25, 5.5]).range([0, w]);
@@ -183,13 +193,13 @@ $(function(){
 		// assign the X function to plot our line as we wish
 		.x(function(d,i) { 
 			// verbose logging to show what's actually being done
-			console.log('Plotting X value for data point: ' + d + ' using index: ' + i + ' to be at: ' + x(i) + ' using our xScale.');
+			//console.log('Plotting X value for data point: ' + d + ' using index: ' + i + ' to be at: ' + x(i) + ' using our xScale.');
 			// return the X coordinate where we want to plot this datapoint
 			return x(i*.25) + 43; 
 		})
 		.y(function(d) { 
 			// verbose logging to show what's actually being done
-			console.log('Plotting Y value for data point: ' + d + ' to be at: ' + y(d) + " using our yScale.");
+			//console.log('Plotting Y value for data point: ' + d + ' to be at: ' + y(d) + " using our yScale.");
 			// return the Y coordinate where we want to plot this datapoint
 			return y(d); 
 		})

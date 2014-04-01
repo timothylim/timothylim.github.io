@@ -39,9 +39,10 @@ margin: 0 auto;
 }
 div.logo{
 	background: #251c05 url(../images/scratches.gif) center center no-repeat;
-margin: 0 60px;
-padding: 10px 40px;
-border-radius: 5px;
+	padding: 10px 40px;
+	border-radius: 5px;
+	width: 88%;
+	margin: 0 auto;
 }
 a.span{
 	font-weight: normal;
@@ -95,6 +96,13 @@ a:link, a:visited {
 }
 a:active, a:hover, a:focus {
 	text-decoration:underline;
+}
+
+#nav>span{
+	color: gray;
+	font-size: 15px;
+	padding-right: 15px;
+	cursor:pointer;
 }
 
 header h1 {
