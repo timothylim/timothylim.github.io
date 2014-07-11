@@ -2,7 +2,6 @@ html, body {
 	margin:0;
 	padding:0;
 }
-/*html { background:#e7e4d1 url(../images/html.jpg) fixed }*/
 html {
   background: url("../images/noise.png"), -webkit-gradient(radial, 50% 0%, 0, 50% 0%, 1000, color-stop(0%, #37d7ff), color-stop(100%, #0a91b2));
   background: url("../images/noise.png"), -webkit-radial-gradient(top center, circle, #37d7ff 0%, #0a91b2 1000px);
@@ -12,21 +11,7 @@ html {
   -moz-text-size-adjust: none;
   -webkit-text-size-adjust: none;
   -ms-text-size-adjust: none; }
-/*body {
-	font-size:100%;
-	font-family:Georgia, "URW Bookman L", serif;
-	font-weight:normal;
-	font-style:normal;
-	font-variant:normal;
-	line-height:1.5;
-	vertical-align:baseline;
-	color:#333;
-	background:#F0F0F0;
-	background-color:rgb(240, 240, 240);
-	background-repeat:repeat-x;
-	background-position:top;
-	background:url(../images/body.jpg) center 140px no-repeat fixed;
-}*/
+
 body{
 	background-size: 50px 50px;
 	background-position: top right;
@@ -41,22 +26,12 @@ body{
 	margin-top: 100px;
 	background-color: #f9f7ec;
 	padding: 15px;
-	border-radius: 5px 0 5px 5px;
+	border-radius: 5px;
 	box-shadow: 0px 0px 5px 2px #0a91b2;
 }
-/*div.fade{
-	background: url(../images/fade.png);
-height: 155px;
-width: 100%;
-position: fixed;
-top: 0;
-left: 0;
-z-index:2;
-}*/
+
 div.header{
 	z-index: 3;
-	/*position: fixed;
-	margin-left: -300px;*/
 	left: 50%;
 }
 div.wrapper{
