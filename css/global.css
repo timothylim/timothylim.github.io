@@ -183,11 +183,11 @@ h3 {
 }*/
 /* content selection bg green leave it in place as both is needed for different browser support */
 .content ::-moz-selection {
-	background: black;
+	background: rgb(75, 187, 216);
 	color: white;
 }
 .content ::selection {
-	background: black;
+	background: rgb(75, 187, 216);
 	color: white;
 }
 .content ul {
