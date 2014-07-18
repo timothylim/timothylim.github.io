@@ -153,9 +153,7 @@ h3 {
 	margin:0 auto;
 	overflow:hidden;
 }
-/*.content p {
-	text-align:justify;
-}*/
+
 /* content selection bg green leave it in place as both is needed for different browser support */
 .content ::-moz-selection {
 	background: rgb(75, 187, 216);

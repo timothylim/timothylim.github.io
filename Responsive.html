@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Responsive design test page</title>
+    <script src="aspenONECore/scripts/jquery-1.7.2.js"></script>
+    <script src="responsive.js"></script>
+    <style media="screen" type="text/css">
+    html{
+        background: -webkit-radial-gradient(center, circle, #37d7ff 0%, #0a91b2 1000px);
+    }
+
+    div{
+        margin-bottom: 20px;
+    }
+    @media only screen and (min-width : 1000px){
+        html
+        {
+            background: lightcoral;
+        }
+    }
+    @media only screen and (min-resolution:2dppx) {
+        html
+        {
+            background: lightblue;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div id="screenInfo">
+        <div id="pixels"></div>
+        <div id="ratio"></div>
+        <div id="orientation"></div>
+        <div id="testdiv" style="height: 1in; left: -100%; position: absolute; top: -100%; width: 1in;"></div>
+        <div id="dpi"></div>
+
+        <div style="width:500px;">
+            The css selector "min-resolution" allows us to specify the dpi (dots per inch) and determine if this is a high density display.  
+            There is also a dppx metric that can be used that indicates the minimum dots per pixel.
+        </div>
+
+    </div>
+</body>
+</html>
