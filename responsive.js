@@ -13,6 +13,7 @@
 
     $('#dpi').text("dpi: " + dpi_x + "x" +dpi_y);
 
+    $('#window').text("window dimensions: " + $(window).height() "x" + $(window).width());
 
 })
 
