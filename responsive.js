@@ -13,6 +13,6 @@
     	$('#orientation').text("orientation: " + window.screen.orientation + "");
 
     	$('#window').text("window dimensions: " + $(window).height() +"x" + $(window).width());
-	}
+	});
 })
 
