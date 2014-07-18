@@ -1,0 +1,215 @@
+body
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+#ubar
+{
+width: 100%;
+display: table;
+background-color: #4d4640;
+font-family: 'Arial';
+height: 2.7em;
+table-layout: fixed;
+}
+
+#ubar_inner
+{
+display: table-row;
+height: 2.7em;
+}
+
+#ubar_left
+{
+overflow: hidden;
+width: 50%;
+display: table-cell;
+vertical-align: middle;
+}
+
+#ubar_right
+{
+overflow: hidden;
+width: 50%;
+display: table-cell;
+text-align: right;
+vertical-align: middle;
+}
+
+#ubar img
+{
+vertical-align: middle;
+}
+
+#ubar_title
+{
+display: table-cell;
+white-space: nowrap;
+color: #ffffff;
+vertical-align: middle;
+text-overflow: ellipsis;
+overflow: hidden;
+width: 15em;
+min-width: auto;
+text-align: center;
+}
+
+#ubar_search_input
+{
+max-width: 12em;
+min-width: 7em;
+position: relative;
+width: 45%;
+box-sizing: border-box;
+display: inline-block;
+padding-left: 0.3em;
+height: 1.5em;
+font-size: 100%;
+}
+
+.icon
+{
+	position: relative;
+	padding-right: 2em;
+}
+
+#dots
+{
+	display: none;
+}
+
+#resp_search_icon
+{
+	display: none;
+}
+
+#logo
+{
+	padding-left: .2em;
+	max-width: 100%;
+	display: inline-block;
+	width: 6em;
+	padding-right: .2em;
+}
+
+#return_search
+{
+	padding-left: 1.5em;
+}
+
+@media (max-width: 1076px)
+{
+
+	#return_search
+	{
+		display: inline;
+		padding-left: 1em;
+	}
+	
+	#logo
+{
+	width: 4em;
+}
+}
+
+@media (max-width: 859px)
+{
+	#ubar_search_input
+	{
+		display: none;
+	}
+	
+	#resp_search_icon
+	{
+		display: inline;
+		padding-right: 0px;
+	}
+	
+	#ubar, #ubar_inner
+	{
+		height: 2em;
+	}
+	
+	.icon
+	{
+		height: 1.5em;
+		width: 1.5em;
+	}
+	
+	.icon:not(#resp_search_icon)
+	{
+		padding-right: 1em;
+	}
+	
+	#logo
+	{
+		padding-left: .5em;
+		width: 4.5em;
+		padding-right: .75em;
+	}
+	
+	#return_search
+	{
+		display: none;
+		padding-left: 1em;
+	}
+}
+
+@media (max-width: 572px)
+{
+
+	#ubar_title
+	{
+		width: 12em;
+	}
+	
+	#ubar, #ubar_inner
+	{
+		height: 2.5em;
+	}
+	
+	.icon
+	{
+		height: 1.9em;
+		width: 1.9em;
+	}
+	
+	.icon:not(#resp_search_icon)
+	{
+		padding-right: 1em;
+	}
+	
+	#logo
+	{
+		padding-left: .2em;
+		width: 5.5em;
+	}
+	
+	body
+	{
+		font-size: 80%;
+	}
+	
+	#show_hide
+	{
+		display: none;
+	}
+
+}
+
+
+@media (max-width: 378px)
+{
+	#ubar_title
+	{
+		width: 13em;
+		font-size: .85em;
+	}
+		#logo
+	{
+		padding-right: 0.2em;
+		width: 3.5em;
+		
+	}	
+}
