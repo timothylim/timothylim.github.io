@@ -471,7 +471,8 @@ $(function(){
 
 	  ga('create', 'UA-49593509-1', 'timothylim.github.io');
 	  ga('send', 'pageview');
-});
+
+
 var startLocation = "163%20cleveland%20ave,%20braintree,%20ma";
 var destination = "100%20innovative%20way,%20nahsua%20nh"
 var startTimeRange = "06%3A45"
@@ -501,3 +502,5 @@ foo(function(x){
 	console.log(estimatedTime)
 });
   var plot1 = $.jqplot('chart1', [[3,7,9,1,4,6,8,2,5]]);
+
+});
