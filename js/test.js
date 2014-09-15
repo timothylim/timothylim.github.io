@@ -472,3 +472,34 @@ $(function(){
 	  ga('create', 'UA-49593509-1', 'timothylim.github.io');
 	  ga('send', 'pageview');
 });
+var startLocation = "163%20cleveland%20ave,%20braintree,%20ma";
+var destination = "100%20innovative%20way,%20nahsua%20nh"
+var startTimeRange = "06%3A45"
+$.ajax({
+url: "http://www.mapquestapi.com/directions/v2/route?key=Fmjtd%7Cluur2hubll%2C7x%3Do5-9wa50y&callback=handleRouteResponse&outFormat=json&routeType=FASTEST&narrativeType=microformat&from="+startLocation+"&to="+destination+"&timeType=2&useTraffic=true&dateType=2&localTime="+startTimeRange+"&generalize=500&narrativeType=microformat",
+dataType: 'json',
+type: 'POST',
+contentType:'json',
+success: function(data) { console.log(JSON.parse(data))/*''+data+''.*/ },
+error: function(data) { console.log(data) } 
+});
+
+function foo(callback) {
+    var httpRequest = new XMLHttpRequest();
+    httpRequest.onreadystatechange = function(){
+        if (httpRequest.readyState === 4) {// request is done
+            if (httpRequest.status === 200) {// successfully
+                callback(httpRequest.responseText);// we're calling our method
+            }
+        }
+    };
+    httpRequest.open('GET', "http://www.mapquestapi.com/directions/v2/route?key=Fmjtd%7Cluur2hubll%2C7x%3Do5-9wa50y&callback=handleRouteResponse&outFormat=json&routeType=FASTEST&narrativeType=microformat&from="+startLocation+"&to="+destination+"&timeType=2&useTraffic=true&dateType=2&localTime="+startTimeRange+"&generalize=500&narrativeType=microformat");
+    httpRequest.send();
+}
+foo(function(x){
+	var estimatedTime = JSON.parse(x.replace('handleRouteResponse(', '').slice(0, -2)))['route']['formattedTime']
+	console.log(estimatedTime)
+}
+);
+  var plot1 = $.jqplot ('chart1', [[3,7,9,1,4,6,8,2,5]]);
+$('body').append(plot1);
