@@ -501,6 +501,6 @@ foo(function(x){
 	var estimatedTime = JSON.parse(x.replace('handleRouteResponse(', '').slice(0, -2))['route']['formattedTime']
 	console.log(estimatedTime)
 });
-  var plot1 = $.jqplot('chart1', [[3,7,9,1,4,6,8,2,5]]);
+  var plot1 = $.jqplot('chart1', [[59,10],[62,11],[63,15],[69,52],[55,63],[62,65]]);
 
 });
