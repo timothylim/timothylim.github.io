@@ -497,9 +497,8 @@ function foo(callback) {
     httpRequest.send();
 }
 foo(function(x){
-	var estimatedTime = JSON.parse(x.replace('handleRouteResponse(', '').slice(0, -2)))['route']['formattedTime']
+	var estimatedTime = JSON.parse(x.replace('handleRouteResponse(', '').slice(0, -2))['route']['formattedTime']
 	console.log(estimatedTime)
-}
-);
+});
   var plot1 = $.jqplot ('chart1', [[3,7,9,1,4,6,8,2,5]]);
 $('body').append(plot1);
