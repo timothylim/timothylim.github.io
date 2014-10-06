@@ -204,7 +204,7 @@ h3 {
 	display: inline-block;
 }
 
-#speedText, #readText, #typingOutput, #graphText, #maze{
+#speedText, #readText, #typingOutput, #graphText, #maze, #chart1{
 	width:740px;
 	margin: 0 auto;
 }
@@ -245,7 +245,8 @@ path {
     stroke: #000;
 }
 
-
+#chartInput input{
+}
 /*maze css*/
   table {
     margin: 1em 0;

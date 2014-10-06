@@ -88,6 +88,24 @@
     </table>
     </div>
 <div id="chart1" style="height: 300px; width: 500px; position: relative;" class="jqplot-target"></div>
+
+<div id="chartInput">
+<div><label>From: </label><input id="from" type="text" style="width:20em"/></div>
+<div><label>To: </label><input id="to" type="text" style="width:20em"/></div>
+<div><label>Day of week: </label>
+	<select id="day">
+	  <option value="1">Sunday</option>
+	  <option value="2">Monday</option>
+	  <option value="3">Tuesday</option>
+	  <option value="4">Wednesday</option>
+	  <option value="5">Thursday</option>
+	  <option value="6">Friday</option>
+	  <option value="7">Saturday</option>
+	</select>
+<div><label>Time range (24h, hh:mm): </label><input id="startTimeRange" type="text" maxlength="5" value="00:00"/></div>
+<input id="calculate" value="calculate" type="button"/>
+
+</div>
 </section>
 </main>
 </body>

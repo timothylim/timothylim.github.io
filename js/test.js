@@ -473,34 +473,49 @@ $(function(){
 	  ga('send', 'pageview');
 
 
-var startLocation = "163%20cleveland%20ave,%20braintree,%20ma";
-var destination = "100%20innovative%20way,%20nahsua%20nh"
-var startTimeRange = "06%3A45"
-$.ajax({
-url: "http://www.mapquestapi.com/directions/v2/route?key=Fmjtd%7Cluur2hubll%2C7x%3Do5-9wa50y&callback=handleRouteResponse&outFormat=json&routeType=FASTEST&narrativeType=microformat&from="+startLocation+"&to="+destination+"&timeType=2&useTraffic=true&dateType=2&localTime="+startTimeRange+"&generalize=500&narrativeType=microformat",
-dataType: 'json',
-type: 'POST',
-contentType:'json',
-success: function(data) { console.log(JSON.parse(data))/*''+data+''.*/ },
-error: function(data) { console.log(data) } 
-});
 
-function foo(callback) {
-    var httpRequest = new XMLHttpRequest();
-    httpRequest.onreadystatechange = function(){
-        if (httpRequest.readyState === 4) {// request is done
-            if (httpRequest.status === 200) {// successfully
-                callback(httpRequest.responseText);// we're calling our method
-            }
-        }
-    };
-    httpRequest.open('GET', "http://www.mapquestapi.com/directions/v2/route?key=Fmjtd%7Cluur2hubll%2C7x%3Do5-9wa50y&callback=handleRouteResponse&outFormat=json&routeType=FASTEST&narrativeType=microformat&from="+startLocation+"&to="+destination+"&timeType=2&useTraffic=true&dateType=2&localTime="+startTimeRange+"&generalize=500&narrativeType=microformat");
-    httpRequest.send();
-}
-foo(function(x){
-	var estimatedTime = JSON.parse(x.replace('handleRouteResponse(', '').slice(0, -2))['route']['formattedTime']
-	console.log(estimatedTime)
-});
-  var plot1 = $.jqplot('chart1', [[[59,10],[62,11],[63,15],[69,52],[55,63],[62,65]]]);
+	var resultArray = [];
+	function foo(callback, time) {
+		var startLocation = encodeURI($('#from').val());//"163%20cleveland%20ave,%20braintree,%20ma";
+		var destination = encodeURI($('#to').val());//"100%20innovative%20way,%20nahsua%20nh"
+		var day = $('#day').val();
+
+	    var httpRequest = new XMLHttpRequest();
+	    httpRequest.onreadystatechange = function(){
+	        if (httpRequest.readyState === 4) {// request is done
+	            if (httpRequest.status === 200) {// successfully
+	                callback(httpRequest.responseText);// we're calling our method
+	            }
+	        }
+	    };
+	    httpRequest.open('GET', "http://www.mapquestapi.com/directions/v2/route?key=Fmjtd%7Cluur2hubll%2C7x%3Do5-9wa50y&callback=handleRouteResponse&outFormat=json&routeType=FASTEST&narrativeType=microformat&from="+startLocation+"&to="+destination+"&timeType=2&useTraffic=true&dateType="+day+"&localTime="+time+"&generalize=500&narrativeType=microformat");
+	    httpRequest.send();
+	}
+	$('#calculate').click(function(){
+		var startTimeRange = encodeURI($('#startTimeRange').val());//"06%3A45"
+		var timeArray = $('#startTimeRange').val().split(':');
+		var timeRangeArray = [];
+		timeRangeArray[0] = startTimeRange
+		while(timeRangeArray.length < 20){
+			if((parseInt(timeArray[1]) + 5) < 60){
+				timeArray[1] = parseInt(timeArray[1]) + 5;
+				timeRangeArray.push(encodeURI(timeArray[0] + ':' + timeArray[1])); 
+			}
+			else{
+				timeArray[0] = parseInt(timeArray[0]) + 1;
+				timeArray[1] = '00';
+				timeRangeArray.push(encodeURI(timeArray[0] + ':' + timeArray[1])); 
+
+			}
+		}
+		for(var i = 0; i< timeRangeArray.length; i++){
+			foo(function(x){
+				var estimatedTime = JSON.parse(x.replace('handleRouteResponse(', '').slice(0, -2))['route']['formattedTime']
+				console.log(estimatedTime)
+				resultArray.push(estimatedTime);
+			}, timeRangeArray[i]);
+		}
+	});
+	var plot1 = $.jqplot('chart1', [[[59,10],[62,11],[63,15],[69,52],[55,63],[62,65]]]);
 
 });
