@@ -45,38 +45,6 @@
     	or:
     	<a href="mailto:timothy.t.lim@gmail.com" style="color:chocolate;">timothy.t.lim@gmail.com</a>
 </p>
-<div id='speedText'>
-	Inspired by speed reading apps like Sprtiz, I have created a small tool for increasing reading time.  Simply paste the text you want to read into the input box, along with the desired words per minute.  The average reading speed is around 250 wpm, while top speed readers boast a reading speed of 1000 wpm with about 50% comprehension.  Read more about speed reading <a href="http://en.wikipedia.org/wiki/Speed_reading" title="speedreadwiki" style='color: chocolate;'>here.</a>
-</div>
-<div id='speedread'>
-	<input type="text" id="inputText" placeholder='insert text here'>
-	<input type="text" id="inputSpeed" placeholder='wpm (default 250 wpm)'>
-	<input type='button' value='start' id='startbutton'>
-	<input type='button' value='stop' id='stopbutton'>
-</div>
-<div id ='speedOutput' style="padding-bottom: 50px;">
-	<label id='outputLabel'>output</label> 
-</div>
-</section>
-
-<div id='readText'>
-	Typing test:</br>
-	To use, start typing the text above the input box. Try to get as many words correctly spelled in 60s.  The words per minutte will be displayed to the right after.
-</div>
-<div id ='typingOutput' style='background-color:white;'>
-	<label id='typingLabel'style='text-align:left'>typing test output</label> 
-</div>
-<div id='typingInput'>
-	<input type="text" id="typingText" placeholder='start here'>
-	<input type='button' value='restart' id='restartTest'>
-	<label id="timer">60 s</label>
-	<label id="wpm"></label>
-
-</div>
-<div id='graphText'>
-	This is a plot using the d3.js library.  It plots the surface area of a cylinder (in<sup>3</sup>) against the radius (inches) for a fixed volume.  The blue line is for 12 oz where the surface area is optimal at 1.5 in.  The red line is 7.5 oz, or the same volume as the smaller cans of soda.  
-</div>	<div id="graph" class="aGraph" style="text-align:center;"></div>
-
     <div id='maze'>
     <div id='graphText'>
 	This is a maze generator.  Using a depth first search algorithm, I create a maze that has only one path from any point in the maze to  another. Input the size of a maze to be created.  The path highlighting is currently under construction and will be updated. I'm not too excited about the mouse movement, so I will be using arrow keys.
@@ -87,25 +55,7 @@
     <table id="grid">
     </table>
     </div>
-<div id="chart1" style="height: 300px; width: 500px; position: relative;" class="jqplot-target"></div>
 
-<div id="chartInput">
-<div><label>From: </label><input id="from" type="text" style="width:20em"/></div>
-<div><label>To: </label><input id="to" type="text" style="width:20em"/></div>
-<div><label>Day of week: </label>
-	<select id="day">
-	  <option value="1">Sunday</option>
-	  <option value="2">Monday</option>
-	  <option value="3">Tuesday</option>
-	  <option value="4">Wednesday</option>
-	  <option value="5">Thursday</option>
-	  <option value="6">Friday</option>
-	  <option value="7">Saturday</option>
-	</select>
-<div><label>Time range (24h, hh:mm): </label><input id="startTimeRange" type="text" maxlength="5" value="00:00"/></div>
-<input id="calculate" value="calculate" type="button"/>
-
-</div>
 </section>
 </main>
 </body>
